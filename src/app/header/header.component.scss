@@ -1,0 +1,64 @@
+@import '../config';
+
+.header {
+    width: 100%;
+    height: $header-height;
+    background: $gainsboro;
+
+    .midbar {
+        width: 960px;
+        height: 100%;
+        margin: 0 auto 0 auto;
+
+        .appLogo, .header-btn {
+            display: block;
+            float: left;
+            height: 100%;
+            line-height: $header-height;
+            width: auto;
+            padding: 0 .5em 0 .5em;
+            text-decoration: none;
+            font-size: .9rem;
+            text-align: center;
+            border-left: 1px solid $gainsboro;
+            border-right: 1px solid $gainsboro;
+        }
+        .appLogo {
+            font-weight: bold;
+            margin-left: .5rem;
+            color: $royal-blue;
+        }
+        .header-btn {
+            position: relative;
+            color: $font-base;
+            margin-left: 1em;
+            height: 80%;
+            top: 10%;
+            * {
+                position: relative;
+                display: block;
+                float: left;
+            }
+            img {
+                width: auto;
+                height: 70%;
+                top: 15%;
+            }
+            p {
+                height: 100%;
+                width: auto;
+                line-height: $header-height * 0.7;
+            }
+        }
+        
+        .appLogo:hover {
+            color: $cornflower-blue;
+        }
+
+        .header-btn:hover {
+            background: $silver;
+            border-left: 1px solid $dark-gray;
+            border-right: 1px solid $dark-gray;
+        }
+    }
+}
