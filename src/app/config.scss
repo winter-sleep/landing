@@ -1,6 +1,6 @@
 $white-smoke: #F5F5F5;
-$gainsboro: #CCC;
-$silver: #C0C0C0;
+$gainsboro: rgb(216, 216, 216);
+$silver: rgb(201, 201, 201);
 $dark-gray: #A9A9A9;
 $dim-gray: #696969;
 $tomato: #FF6347;
@@ -12,7 +12,7 @@ $royal-blue: #4169E1;
 $cornflower-blue: #6495ED;
 $python-blue: #3572A5;
 $pop-blue: #4F5D95;
-$font-base: #333333;
+$font-base: #505050;
 $pop-dark: #1a1a1a;
 $dark-blue: #24292e;
 $light-yellow: #f1e05a;
@@ -20,3 +20,4 @@ $pop-purple: #563d7c;
 
 
 $header-height: 36px;
+$content-width: 960px;

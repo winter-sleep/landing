@@ -32,4 +32,14 @@ export class HeaderComponent implements OnInit {
   public ngOnInit() {
   }
 
+  public signIn()
+  {
+    alert(1);
+  }
+
+  public signUp()
+  {
+    alert(2);
+  }
+
 }
