@@ -19,7 +19,6 @@
             padding: 0 .5em 0 .5em;
             text-decoration: none;
             font-size: .9rem;
-            text-align: center;
             border-left: 1px solid $gainsboro;
             border-right: 1px solid $gainsboro;
         }
@@ -28,26 +27,26 @@
             margin-left: .5rem;
             color: $royal-blue;
         }
+
         .header-btn {
-            position: relative;
-            color: $font-base;
+            display: flex;
             margin-left: 1em;
-            height: 80%;
-            top: 10%;
-            * {
-                position: relative;
-                display: block;
-                float: left;
-            }
             img {
-                width: auto;
-                height: 70%;
-                top: 15%;
+                -ms-flex: none;
+                -moz-flex: none;
+                -webkit-flex: none;
+                flex: none;
+                width: 24px;
+                height: 24px;
+                margin-top: 6px;
             }
             p {
+                -ms-flex: auto;
+                -moz-flex: auto;
+                -webkit-flex: auto;
+                flex: auto;
                 height: 100%;
-                width: auto;
-                line-height: $header-height * 0.7;
+                color: $font-base;
             }
         }
         

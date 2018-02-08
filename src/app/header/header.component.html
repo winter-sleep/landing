@@ -1,7 +1,10 @@
 <nav class="header">
   <div class="midbar">
     <a class="appLogo" href="{{logo.href}}">{{ logo.text }}</a>
-    <a *ngFor="let btn of navbtn" href="{{btn.href}}" class="header-btn">
+    <a *ngFor="let btn of navbtn"
+      href="{{btn.href}}"
+      class="header-btn"
+    >
       <img src="{{btn.image}}" />
       <p>{{ btn.text }}</p>
     </a>
