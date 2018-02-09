@@ -12,10 +12,10 @@ export class HeaderComponent implements OnInit {
    * 导航栏标准按钮
    */
   public navbtn: Array<NavButton> = [
-    {id: 1, text: "作品", href: "/article", image: "http://localhost/image/index/pen.png"},
-    {id: 2, text: "日程", href: "/date", image: "http://localhost/image/index/pen.png"},
-    {id: 3, text: "wiki", href: "/wiki", image: "http://localhost/image/index/pen.png"},
-    {id: 4, text: "话题", href: "/talk", image: "http://localhost/image/index/pen.png"}
+    {id: 1, text: "作品", href: "/article", image: "assets/system/header/image/101.png"},
+    {id: 3, text: "wiki", href: "/wiki", image: "assets/system/header/image/106.png"},
+    {id: 2, text: "日程", href: "/schedule", image: "assets/system/header/image/108.png"},
+    {id: 4, text: "话题", href: "/talk", image: "assets/system/header/image/107.png"}
   ];
 
   /**

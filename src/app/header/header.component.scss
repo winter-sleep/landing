@@ -3,7 +3,7 @@
 .header {
     width: 100%;
     height: $header-height;
-    background: $gainsboro;
+    background: $pop-dark;
 
     .midbar {
         width: $content-width;
@@ -19,13 +19,13 @@
             padding: 0 .5em 0 .5em;
             text-decoration: none;
             // font-size: .9rem;
-            border-left: 1px solid $gainsboro;
-            border-right: 1px solid $gainsboro;
+            border-left: 1px solid $pop-dark;
+            border-right: 1px solid $pop-dark;
         }
         .appLogo {
             font-weight: bold;
             margin-left: .5rem;
-            color: $royal-blue;
+            color: $cornflower-blue;
         }
 
         .header-btn {
@@ -46,19 +46,20 @@
                 -webkit-flex: auto;
                 flex: auto;
                 height: 100%;
-                color: $font-base;
+                color: $silver;
                 font-size: .9rem;
+                padding: 0 0 0 2px;
             }
         }
         
         .appLogo:hover {
-            color: $cornflower-blue;
+            color: $light-blue;
         }
 
         .header-btn:hover {
-            background: $silver;
-            border-left: 1px solid $dark-gray;
-            border-right: 1px solid $dark-gray;
+            background: $darkblue;
+            border-left: 1px solid $darkblue;
+            border-right: 1px solid $darkblue;
         }
 
         .account {
@@ -67,11 +68,13 @@
             height: 100%;
             font-size: .9em;
             float: right;
+            color: $silver;
 
             a {
                 text-decoration: none;
-                color: $royal-blue;
+                color: $light-blue;
                 line-height: $header-height;
+                font-size: .8rem;
             }
         }
     }
