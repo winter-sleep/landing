@@ -60,6 +60,8 @@
             background: $darkblue;
             border-left: 1px solid $darkblue;
             border-right: 1px solid $darkblue;
+            transform: translate(0,0);
+		    transition:all .3s ease-in 0s;
         }
 
         .account {
