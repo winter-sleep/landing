@@ -1,0 +1,27 @@
+@import '../config.scss';
+
+.content {
+    width: $content-width - $font-size;
+    height: 200px;
+    padding: 0 .5rem 0 .5rem;
+
+    .top {
+        width: 100%;
+        height: 80px;
+        font-size: 2.5rem;
+        text-align: center;
+        line-height: 80px;
+    }
+    .step-bar {
+        width: 100%;
+        height: 65px;
+        border-bottom: 1px solid $silver;
+
+        .midbar {
+            width: 60%;
+            height: 100%;
+            background: yellowgreen;
+            margin: 0 auto 0 auto;
+        }
+    }
+}
