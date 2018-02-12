@@ -7,10 +7,14 @@
 
     .top {
         width: 100%;
-        height: 80px;
-        font-size: 2.5rem;
+        height: 100px;
         text-align: center;
-        line-height: 80px;
+        line-height: 100px;
+        h2 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: $python-blue;
+        }
     }
     .step-bar {
         width: 100%;
@@ -18,10 +22,15 @@
         border-bottom: 1px solid $silver;
 
         .midbar {
+            display: flex;
             width: 60%;
             height: 100%;
             background: yellowgreen;
             margin: 0 auto 0 auto;
+            .step {
+                flex: auto;
+                width: 100%;
+            }
         }
     }
 }
