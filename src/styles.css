@@ -12,3 +12,30 @@
     -ms-user-select:none;
     user-select:none;
 }
+
+.circular {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.hide {
+    display: none;
+}
+
+.hide {
+    display: block;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.button {
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    color: #EEE;
+    background: #AAA;
+}

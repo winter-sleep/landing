@@ -5,17 +5,52 @@
 
     <div class="step-bar">
 
-        <div class="midbar">
+        <div class="midbar no-select">
             <div class="step step1">
-                <p>第一步</p>
+                <span class="step-radio circular" [class.light]="currentStep === 1">1</span>
+                <p>填写电子邮件地址</p>
             </div>
-            <div class="step step1">
-                <p>第一步</p>
+            <div class="step step2">
+                <span class="step-radio circular" [class.light]="currentStep === 2">2</span>
+                <p>设置通行证密码</p>
             </div>
-            <div class="step step1">
-                <p>第一步</p>
+            <div class="step step3">
+                <span class="step-radio circular" [class.light]="currentStep === 3">3</span>
+                <p>完善基本信息</p>
             </div>
         </div>
 
+    </div>
+
+    <div class="form-content">
+        <div class="form" [class.hide]="currentStep !== 1" [class.show]="currentStep === 1">
+            <div class="form-group">
+                <label for="signup-email" class="pointer">电子邮件</label>
+                <input type="text"
+                    id="signup-email"
+                    name="email"
+                    [(ngModel)]="formData.email"
+                    placeholder="电子邮件地址"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="signup-identify" class="pointer">验证码</label>
+                <input type="text"
+                    id="signup-identify"
+                    name="email"
+                    [(ngModel)]="formData.identify"
+                    placeholder="电子邮件地址"
+                />
+                <div class="identify-image">
+                    <img src="#" class="pointer" title="点击刷新验证码">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="hold"></label>
+                <a class="button" href="javascript:void(0);">下一步</a>
+            </div>
+        </div>
     </div>
 </div>

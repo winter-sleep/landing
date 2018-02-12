@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { FormsModule }   from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
@@ -19,6 +20,7 @@ import { SlicebarComponent } from './tools/slicebar/slicebar.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

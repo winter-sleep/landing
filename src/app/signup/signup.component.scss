@@ -1,8 +1,13 @@
 @import '../config.scss';
 
+$step-radio-size: 35px;
+$step-bar-height: 65px;
+$middle-width: 60%;
+$field-height: 40px;
+
 .content {
     width: $content-width - $font-size;
-    height: 200px;
+    height: auto;
     padding: 0 .5rem 0 .5rem;
 
     .top {
@@ -12,24 +17,111 @@
         line-height: 100px;
         h2 {
             font-size: 1.5rem;
-            font-weight: normal;
+            font-weight: bold;
             color: $python-blue;
         }
     }
     .step-bar {
         width: 100%;
-        height: 65px;
+        height: $step-bar-height;
         border-bottom: 1px solid $silver;
 
         .midbar {
             display: flex;
             width: 60%;
             height: 100%;
-            background: yellowgreen;
             margin: 0 auto 0 auto;
             .step {
                 flex: auto;
                 width: 100%;
+                height: $step-radio-size;
+                margin: ($step-bar-height - $step-radio-size)/2 0 0 0;
+
+                p {
+                    float: left;
+                    width: auto;
+                    padding-left: 10px;
+                    height: 100%;
+                    line-height: $step-radio-size;
+                    color: $font-base;
+                }
+
+                .step-radio {
+                    float: left;
+                    background: $dark-gray;
+                    width: $step-radio-size;
+                    height: $step-radio-size;
+                    color: $white-smoke;
+                    line-height: $step-radio-size;
+                    text-align: center;
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+                .light {
+                  background: $royal-blue;
+                }
+            }
+        }
+    }
+
+    .form-content {
+        width: $middle-width;
+        height: auto;
+        margin: 0 auto 0 auto;
+        padding-top: 60px;
+        .form {
+            width: 100%;;
+            height: 200px;
+            .form-group {
+                display: flex;
+                width:80%;
+                height: 60px;
+                margin: 20px auto 20px auto;
+
+                label {
+                    flex: none;
+                    line-height: $field-height;
+                    width: 20%;
+                    font-weight: bold;
+                    color: $font-base;
+                }
+                input {
+                    flex: auto;
+                    font-size: 1rem;
+                    color: $font-base;
+                    text-indent: 1rem;
+                    border: 1px solid $silver;
+                    border-left: 3px solid $cornflower-blue;
+                }
+                label, input {
+                    margin-top: 10px;
+                    height: $field-height;
+                }
+                #signup-identify {
+                    @extend input;
+                    width:50%;
+                }
+                .identify-image {
+                    flex: auto;
+                    width:50%;
+                    height: 100%;
+
+                    img {
+                        flex: auto;
+                        width: 100%;
+                        height: $field-height;
+                        margin-top: (60px - $field-height) / 2;
+                        margin-left: 5px;
+                        border: 1px solid $white-smoke;
+                    }
+                }
+                .button {
+                    width: 80%;
+                    margin: 0 auto 0 auto;
+                    height: $field-height;
+                    line-height: $field-height;
+                    background: $cornflower-blue;
+                }
             }
         }
     }
