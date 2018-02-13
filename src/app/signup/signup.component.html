@@ -6,15 +6,15 @@
     <div class="step-bar">
 
         <div class="midbar flex-row center-block no-select">
-            <div class="step flex-auto step1">
+            <div class="step pointer flex-auto step1" (click)="stepOneHandle()">
                 <span class="step-radio circular pull-left" [class.light]="currentStep === 1">1</span>
                 <p class="pull-left">填写电子邮件地址</p>
             </div>
-            <div class="step step2">
+            <div class="step pointer flex-auto step2" (click)="stepTwoHandle()">
                 <span class="step-radio circular pull-left" [class.light]="currentStep === 2">2</span>
                 <p class="pull-left">设置通行证密码</p>
             </div>
-            <div class="step step3">
+            <div class="step pointer flex-auto step3" (click)="stepThreeHandle()">
                 <span class="step-radio circular pull-left" [class.light]="currentStep === 3">3</span>
                 <p class="pull-left">完善基本信息</p>
             </div>
@@ -23,6 +23,7 @@
     </div>
 
     <div class="form-content center-block">
+        <!-- start of step1 -->
         <div class="form nomal-content" [class.hide]="currentStep !== 1" [class.show]="currentStep === 1">
             <div class="form-group flex-row">
                 <label for="signup-email" class="pointer flex-none">电子邮件</label>
@@ -32,6 +33,8 @@
                     [(ngModel)]="formData.email"
                     placeholder="电子邮件地址"
                     class="flex-auto"
+                    (blur)="emailTouchedHandle()"
+                    [class.error]="!fieldState.email"
                 />
             </div>
 
@@ -43,6 +46,7 @@
                     [(ngModel)]="formData.identify"
                     placeholder="验证码"
                     class="flex-auto"
+                    [class.error]="!fieldState.identify"
                 />
                 <div class="identify-image flex-auto">
                     <img src="#" class="pointer flex-auto" title="点击刷新验证码">
@@ -51,8 +55,79 @@
 
             <div class="form-group">
                 <label class="hold"></label>
-                <a class="button center-block" href="javascript:void(0);">下一步</a>
+                <a  class="button center-block"
+                    (click)="stepTwoHandle();"
+                    href="javascript:void(0);"
+                >
+                    下一步
+                </a>
             </div>
         </div>
+        <!-- end of step1 -->
+
+        <!-- start of step2 -->
+        <div class="form nomal-content hide" [class.show]="currentStep === 2">
+            <div class="form-group flex-row">
+                <label for="signup-password" class="pointer flex-none">设置密码</label>
+                <input type="password"
+                    id="signup-password"
+                    name="password"
+                    [(ngModel)]="formData.password"
+                    placeholder="设置登录密码"
+                    class="flex-auto"
+                />
+            </div>
+
+            <div class="form-group flex-row">
+                <label for="signup-repassword" class="pointer flex-none">确认密码</label>
+                <input type="password"
+                    id="signup-repassword"
+                    name="repassword"
+                    [(ngModel)]="formData.repassword"
+                    placeholder="再次输入登录密码"
+                    class="flex-auto"
+                />
+            </div>
+
+            <div class="form-group">
+                <label class="hold"></label>
+                <a class="button center-block" (click)="stepThreeHandle();" href="javascript:void(0);">下一步</a>
+            </div>
+        </div>
+        <!-- end of step2 -->
+
+        <!-- start of step3 -->
+        <div class="form nomal-content hide" [class.show]="currentStep === 3">
+            <div class="form-group flex-row">
+                <label for="signup-nickname" class="pointer flex-none">取个名字吧</label>
+                <input type="text"
+                    id="signup-nickname"
+                    name="nickname"
+                    [(ngModel)]="formData.nickname"
+                    placeholder="怎么称呼您"
+                    class="flex-auto"
+                    maxlength="32"
+                />
+            </div>
+
+            <div class="form-group flex-row">
+                <label for="signup-gender" class="pointer flex-none">你的性别是</label>
+                <select
+                    class="flex-auto gender selector"
+                    name="gender"
+                    [(ngModel)]="formData.gender"
+                >
+                    <option value="0">女 性</option>
+                    <option value="1">男 性</option>
+                    <option value="2">保 密</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="hold"></label>
+                <a class="button center-block" (click)="postHandle()" href="javascript:void(0);">填好了</a>
+            </div>
+        </div>
+        <!-- end of step3 -->
     </div>
 </div>

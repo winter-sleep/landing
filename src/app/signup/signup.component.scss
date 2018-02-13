@@ -69,6 +69,14 @@ $field-height: 40px;
                 height: 60px;
                 margin: 20px auto 20px auto;
 
+                input.error {
+                    border-color: $lightred;
+                }
+
+                .greyset {
+                    background: $dark-gray !important;
+                }
+
                 label {
                     line-height: $field-height;
                     width: 20%;
@@ -87,7 +95,6 @@ $field-height: 40px;
                     height: $field-height;
                 }
                 #signup-identify {
-                    @extend input;
                     width:50%;
                 }
                 .identify-image {
@@ -107,6 +114,10 @@ $field-height: 40px;
                     height: $field-height;
                     line-height: $field-height;
                     background: $cornflower-blue;
+                }
+                .gender {
+                    height: 40px;
+                    margin-top: 10px;
                 }
             }
         }

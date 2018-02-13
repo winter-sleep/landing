@@ -4,8 +4,9 @@ $footer-height: 60px;
 
 .footer {
     margin-top: 10rem;
+    margin-bottom: 2rem;
     padding-top: 20px;
-    border-top: 1px solid $white-smoke;
+    border-top: 1px solid $gainsboro;
     .content {
         width: $content-width;
         height: $footer-height;
@@ -27,13 +28,15 @@ $footer-height: 60px;
                         list-style:none;
                         padding: 0 10px 0 10px;
                         a, a:hover {
-                            color: $dark-gray;
+                            color: $font-base;
                             font-size: .8em;
                         }
                     }
                 }
 
                 p {
+                    height: 100%;
+                    line-height: $footer-height;
                     padding-left: 10px;
                     color: $dim-gray;
                     font-size: .8em;
@@ -57,7 +60,7 @@ $footer-height: 60px;
                 .print-info {
                     font-size: .7em;
                     margin-top: 5px;
-                    color: $silver;
+                    color: $font-base;
                 }
             }
         }

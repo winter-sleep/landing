@@ -6,8 +6,8 @@
     font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif !important;
 }
 
-*::selection{background:#6495ED; color:#FFFFFF;}  
-*::-moz-selection{background:#6495ED; color:#FFFFFF;}  
+*::selection{background:#6495ED; color:#FFFFFF;}
+*::-moz-selection{background:#6495ED; color:#FFFFFF;}
 *::-webkit-selection{background:#6495ED; color:#FFFFFF;}
 
 .no-select{
@@ -27,7 +27,7 @@
     display: none;
 }
 
-.hide {
+.show {
     display: block;
 }
 
@@ -113,4 +113,25 @@
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     -moz-flex-direction: column;
+}
+
+.selector {
+    border: 1px solid #A9A9A9;
+    background: #F5F5F5;
+    appearance:none;
+    -o-appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: url("/assets/system/tools/image/001.png")
+    no-repeat scroll right center transparent;
+    color: #696969;
+}
+.selector option {
+    margin-top: 4px;
+    background: white;
+    color: #333;
+    text-align: left;
+    text-indent: 1em;
 }
