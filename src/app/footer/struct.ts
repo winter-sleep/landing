@@ -6,6 +6,7 @@ export class Linkbox {
     text: string;
     link: string;
     title: string;
+    target: string;
 }
 
 export class Linker {

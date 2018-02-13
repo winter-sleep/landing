@@ -8,16 +8,12 @@
     .midbar {
         width: $content-width;
         height: 100%;
-        margin: 0 auto 0 auto;
 
         .appLogo, .header-btn {
-            display: block;
-            float: left;
             height: 100%;
             line-height: $header-height;
             width: auto;
             padding: 0 .5em 0 .5em;
-            text-decoration: none;
             // font-size: .9rem;
             border-left: 1px solid $pop-dark;
             border-right: 1px solid $pop-dark;
@@ -29,22 +25,13 @@
         }
 
         .header-btn {
-            display: flex;
             margin-left: 1em;
             img {
-                -ms-flex: none;
-                -moz-flex: none;
-                -webkit-flex: none;
-                flex: none;
                 width: 24px;
                 height: 24px;
                 margin-top: 6px;
             }
             p {
-                -ms-flex: auto;
-                -moz-flex: auto;
-                -webkit-flex: auto;
-                flex: auto;
                 height: 100%;
                 color: $silver;
                 font-size: .9rem;
@@ -69,11 +56,9 @@
             padding: 0 10px 0 10px;
             height: 100%;
             font-size: .9em;
-            float: right;
             color: $silver;
 
             a {
-                text-decoration: none;
                 color: $light-blue;
                 line-height: $header-height;
                 font-size: .8rem;

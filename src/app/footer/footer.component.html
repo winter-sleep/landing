@@ -1,14 +1,14 @@
-<div class="footer">
+<div class="footer nomal-content">
 
-    <div class="content center">
+    <div class="content center-block">
 
-        <div class="left">
-            <div class="left-bar">
-                <ul>
-                    <li *ngFor="let linker of linkers">
+        <div class="left pull-left">
+            <div class="left-bar pull-left">
+                <ul class="pull-left">
+                    <li *ngFor="let linker of linkers" class="pull-left">
                         <a  class="nomal-link"
                             title="{{linker.text}}"
-                            href="{{linker.link}}">
+                            routerLink="{{linker.link}}">
                             {{linker.text}}
                         </a>
                     </li>
@@ -20,10 +20,10 @@
             </div>
         </div>
 
-        <div class="right no-select">
-            <a *ngFor="let linkbox of linkboxes" class="box nomal-link" href="{{linkbox.link}}" title="{{linkbox.title}}">
-                <img src="{{linkbox.image}}" class="show-box circular center" />
-                <span class="print-info">{{linkbox.text}}</span>
+        <div class="right no-select pull-left">
+            <a *ngFor="let linkbox of linkboxes" class="box flex-row flex-column nomal-link pull-right" [target]="linkbox.target" href="{{linkbox.link}}" title="{{linkbox.title}}">
+                <img src="{{linkbox.image}}" class="show-box flex-none circular center-block" />
+                <span class="print-info flex-auto">{{linkbox.text}}</span>
             </a>
         </div>
 

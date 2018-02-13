@@ -1,17 +1,17 @@
 <nav class="header">
-  <div class="midbar">
-    <a class="appLogo" href="{{logo.href}}">{{ logo.text }}</a>
+  <div class="midbar center-block">
+    <a class="appLogo nomal-link pull-left" href="{{logo.href}}">{{ logo.text }}</a>
     <a *ngFor="let btn of navbtn"
-      href="{{btn.href}}"
-      class="header-btn"
+      routerLink="{{btn.href}}"
+      class="header-btn flex-row nomal-link pull-left"
     >
-      <img src="{{btn.image}}" />
-      <p>{{ btn.text }}</p>
+      <img src="{{btn.image}}" class="flex-none" />
+      <p class="flex-auto">{{ btn.text }}</p>
     </a>
 
-    <div class="account" href="javascript:void(0);">
-      <a href="javascript:void(0);">登录</a> | 
-      <a routerLink="/signup">注册</a>
+    <div class="account pull-right" href="javascript:void(0);">
+      <a routerLink="/signin" class="nomal-link">登录</a> | 
+      <a routerLink="/signup" class="nomal-link">注册</a>
     </div>
   </div>
 </nav>
