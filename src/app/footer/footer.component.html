@@ -1,0 +1,32 @@
+<div class="footer">
+
+    <div class="content center">
+
+        <div class="left">
+            <div class="left-bar">
+                <ul>
+                    <li *ngFor="let linker of linkers">
+                        <a  class="nomal-link"
+                            title="{{linker.text}}"
+                            href="{{linker.link}}">
+                            {{linker.text}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="left-bar no-select">
+                <p>{{copyright}}</p>
+            </div>
+        </div>
+
+        <div class="right no-select">
+            <a *ngFor="let linkbox of linkboxes" class="box nomal-link" href="{{linkbox.link}}" title="{{linkbox.title}}">
+                <img src="{{linkbox.image}}" class="show-box circular center" />
+                <span class="print-info">{{linkbox.text}}</span>
+            </a>
+        </div>
+
+    </div>
+
+</div>

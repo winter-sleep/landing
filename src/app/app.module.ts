@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SlicebarComponent } from './tools/slicebar/slicebar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SlicebarComponent } from './tools/slicebar/slicebar.component';
     AppComponent,
     HeaderComponent,  // 页面头部
     SignupComponent,
-    SlicebarComponent
+    SlicebarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
