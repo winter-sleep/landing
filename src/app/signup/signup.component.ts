@@ -102,7 +102,7 @@ export class SignupComponent implements OnInit {
     setTimeout(() => {
       this.fieldState.identify = true;
       callback();
-    }, 1000);
+    }, 1);
   }
 
 }

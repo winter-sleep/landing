@@ -22,7 +22,7 @@
 
     </div>
 
-    <div class="form-content center-block">
+    <form class="form-content center-block" (ngSubmit)="postHandle()">
         <!-- start of step1 -->
         <div class="form nomal-content" [class.hide]="currentStep !== 1" [class.show]="currentStep === 1">
             <div class="form-group flex-row">
@@ -32,7 +32,7 @@
                     name="email"
                     [(ngModel)]="formData.email"
                     placeholder="电子邮件地址"
-                    class="flex-auto"
+                    class="flex-auto text-input"
                     (blur)="emailTouchedHandle()"
                     [class.error]="!fieldState.email"
                 />
@@ -42,10 +42,10 @@
                 <label for="signup-identify" class="pointer flex-none">验证码</label>
                 <input type="text"
                     id="signup-identify"
-                    name="email"
+                    name="identify"
                     [(ngModel)]="formData.identify"
                     placeholder="验证码"
-                    class="flex-auto"
+                    class="flex-auto text-input"
                     [class.error]="!fieldState.identify"
                 />
                 <div class="identify-image flex-auto">
@@ -74,7 +74,7 @@
                     name="password"
                     [(ngModel)]="formData.password"
                     placeholder="设置登录密码"
-                    class="flex-auto"
+                    class="flex-auto text-input"
                 />
             </div>
 
@@ -85,7 +85,7 @@
                     name="repassword"
                     [(ngModel)]="formData.repassword"
                     placeholder="再次输入登录密码"
-                    class="flex-auto"
+                    class="flex-auto text-input"
                 />
             </div>
 
@@ -105,14 +105,14 @@
                     name="nickname"
                     [(ngModel)]="formData.nickname"
                     placeholder="怎么称呼您"
-                    class="flex-auto"
+                    class="flex-auto text-input"
                     maxlength="32"
                 />
             </div>
 
             <div class="form-group flex-row">
                 <label for="signup-gender" class="pointer flex-none">你的性别是</label>
-                <select
+                <!-- <select
                     class="flex-auto gender selector"
                     name="gender"
                     [(ngModel)]="formData.gender"
@@ -120,14 +120,47 @@
                     <option value="0">女 性</option>
                     <option value="1">男 性</option>
                     <option value="2">保 密</option>
-                </select>
+                </select> -->
+                <div class="flex-auto gender" id="signup-gender">
+                    <span>
+                        <input
+                            type="radio"
+                            name="gender"
+                            checked
+                            id="signup-gender-0"
+                            value="0"
+                            class="pull-left"
+                            [(ngModel)]="formData.gender"
+                        />
+                    </span>
+                    <span>
+                        <input
+                            type="radio"
+                            name="gender"
+                            id="signup-gender-1"
+                            value="1"
+                            class="pull-left"
+                            [(ngModel)]="formData.gender"
+                        />
+                    </span>
+                    <span>
+                        <input
+                            type="radio"
+                            name="gender"
+                            id="signup-gender-2"
+                            value="2"
+                            class="pull-left"
+                            [(ngModel)]="formData.gender"
+                        />
+                    </span>
+                </div>
             </div>
 
             <div class="form-group">
                 <label class="hold"></label>
-                <a class="button center-block" (click)="postHandle()" href="javascript:void(0);">填好了</a>
+                <input type="submit" class="button center-block" value="填好了">
             </div>
         </div>
         <!-- end of step3 -->
-    </div>
+    </form>
 </div>

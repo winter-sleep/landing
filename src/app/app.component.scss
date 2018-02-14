@@ -1,5 +1,6 @@
 @import './config.scss';
 
 .app-frame {
-    width: $content-width;
+    max-width: $content-width;
+    min-width: 900px;
 }

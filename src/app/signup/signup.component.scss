@@ -6,7 +6,7 @@ $middle-width: 60%;
 $field-height: 40px;
 
 .content {
-    width: $content-width - $font-size;
+    max-width: $content-width - $font-size;
     height: auto;
     padding: 0 .5rem 0 .5rem;
 
@@ -60,7 +60,7 @@ $field-height: 40px;
     }
 
     .form-content {
-        width: $middle-width;
+        max-width: $middle-width;
         height: auto;
         padding-top: 60px;
         .form {
@@ -83,14 +83,14 @@ $field-height: 40px;
                     font-weight: bold;
                     color: $font-base;
                 }
-                input {
+                .text-input {
                     font-size: 1rem;
                     color: $font-base;
                     text-indent: 1rem;
                     border: 1px solid $silver;
                     border-left: 3px solid $cornflower-blue;
                 }
-                label, input {
+                label, .text-input {
                     margin-top: 10px;
                     height: $field-height;
                 }
@@ -110,14 +110,21 @@ $field-height: 40px;
                     }
                 }
                 .button {
+                    cursor: pointer;
                     width: 80%;
                     height: $field-height;
                     line-height: $field-height;
                     background: $cornflower-blue;
                 }
                 .gender {
-                    height: 40px;
+                    $gender-height: 40px;
                     margin-top: 10px;
+                    height: $gender-height;
+                    input {
+                        width: $gender-height / 2;
+                        height: $gender-height / 2;
+                        margin-top: ($gender-height / 4);
+                    }
                 }
             }
         }

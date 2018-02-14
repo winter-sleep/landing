@@ -6,7 +6,8 @@
     background: $pop-dark;
 
     .midbar {
-        width: $content-width;
+        max-width: $content-width;
+        min-width: 600px;
         height: 100%;
 
         .appLogo, .header-btn {
