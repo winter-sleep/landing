@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavButton, Logo } from './struct';
+import { HeaderService } from './header.service';
 
 @Component({
   selector: 'app-header',
@@ -27,17 +28,18 @@ export class HeaderComponent implements OnInit {
     href: '/'
   };
 
-  public constructor() { }
+  public service: HeaderService;
+
+  public loaderState: Boolean;
+
+  public constructor(
+    headerService: HeaderService
+  ) {
+    this.service = headerService;
+    this.loaderState = this.service.loaderState;
+  }
 
   public ngOnInit() {
-  }
-
-  public signIn() {
-    alert(1);
-  }
-
-  public signUp() {
-    alert(2);
   }
 
 }

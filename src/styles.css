@@ -51,6 +51,18 @@
     color: #505050;
 }
 
+.full-row {
+    display: block;
+    width:100%;
+    height: auto;
+}
+
+.full-col {
+    display: block;
+    width: auto;
+    height: 100%;
+}
+
 .pull-right, .pull-left, .center-block {
     display: block;
 }

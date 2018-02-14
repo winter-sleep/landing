@@ -1,14 +1,14 @@
 /**
  * 导航栏标准按钮
  */
-export class NavButton {
+export interface NavButton {
     id: number;
     text: string;
     href: string;
     image: string;
 }
 
-export class Logo {
+export interface Logo {
     id: number;
     text: string;
     href: string;

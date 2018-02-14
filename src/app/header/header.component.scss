@@ -67,3 +67,26 @@
         }
     }
 }
+.header-loader {
+    width: 100%;
+    height: 3px;
+    background: #FFF;
+    overflow:hidden;
+
+    @keyframes mymove {
+        from {left:0;}
+        to {left:100%;}
+    }
+    .am {
+        float: left;
+        position: relative;
+        left:0;
+        width: 20%;
+        height: 100%;
+        background: $royal-blue;
+        animation:mymove 1s infinite;
+    }
+}
+.finish-loader {
+    visibility:hidden;
+}

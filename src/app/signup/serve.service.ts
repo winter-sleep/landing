@@ -12,9 +12,6 @@ const httpOptions = {
   }),
   reportProgress: true,
   withCredentials: true,
-  observe: 'response',
-  responseType: 'json',
-
 };
 
 @Injectable()
@@ -22,22 +19,15 @@ export class ServeService {
 
   CREATED = 200; // 201
 
-  public createUrl = '/assets/webtest/cat.json';
+  public createUrl = '/assets/webtest/signup.json';
 
   constructor(
     private http: HttpClient
   ) { }
 
-  public aa() {
-    alert(1);
-  }
-
   public test(s: SignupData): Observable<HttpResponse<any>> {
+    httpOptions['observe'] = 'response';
     return this.http.get<any>(this.createUrl, httpOptions);
   }
-
-  // private handleError(message: string) {
-  //   console.log(message);
-  // }
 
 }

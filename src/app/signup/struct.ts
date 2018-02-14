@@ -1,20 +1,29 @@
 /**
  * 注册表单数据模型
  */
-export class SignupData {
-    public email: string;
-    public nickname: string;
-    public password: string;
-    public repassword: string;
-    public gender: number;
-    public identify: string;
+export interface SignupData {
+    email: string;
+    nickname: string;
+    password: string;
+    repassword: string;
+    gender: number;
+    identify: string;
 }
 
-export class FieldState {
-    public email: Boolean;
-    public nickname: Boolean;
-    public password: Boolean;
-    public repassword: Boolean;
-    public gender: Boolean;
-    public identify: Boolean;
+export interface FieldState {
+    email: Boolean;
+    nickname: Boolean;
+    password: Boolean;
+    repassword: Boolean;
+    gender: Boolean;
+    identify: Boolean;
+}
+
+export interface MessageBox {
+    email: string;
+    nickname: string;
+    password: string;
+    repassword: string;
+    gender: string;
+    identify: string;
 }
