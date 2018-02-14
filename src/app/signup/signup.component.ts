@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupData, FieldState } from './struct';
+import { ServeService } from './serve.service';
 
 @Component({
   selector: 'app-signup',
@@ -30,7 +31,11 @@ export class SignupComponent implements OnInit {
 
   private emailTouched = false;
 
-  constructor() { }
+  private serveService;
+
+  constructor(serveService: ServeService) {
+    this.serveService = serveService;
+  }
 
   ngOnInit() {
   }
@@ -57,7 +62,13 @@ export class SignupComponent implements OnInit {
   }
 
   public postHandle(): void {
-    console.log(this.formData);
+    let responseBase = this.serveService.test(this.formData);
+    responseBase.subscribe(data => {
+      console.log(data)
+      if (data.status == 200) {
+        alert("保存成功");
+      }
+    });
   }
 
 /**

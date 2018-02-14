@@ -120,10 +120,21 @@ $field-height: 40px;
                     $gender-height: 40px;
                     margin-top: 10px;
                     height: $gender-height;
-                    input {
-                        width: $gender-height / 2;
-                        height: $gender-height / 2;
-                        margin-top: ($gender-height / 4);
+                    span {
+                      margin-right: 20px;
+                      input {
+                          width: $gender-height / 2;
+                          height: $gender-height / 2;
+                          margin-top: ($gender-height / 4);
+                          cursor: pointer;
+                      }
+                      p {
+                        width: auto;
+                        height: 100%;
+                        line-height: $gender-height;
+                        text-indent: 5px;
+                        font-size: .9rem;
+                      }
                     }
                 }
             }

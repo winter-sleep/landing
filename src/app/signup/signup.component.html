@@ -45,6 +45,7 @@
                     name="identify"
                     [(ngModel)]="formData.identify"
                     placeholder="验证码"
+                    (blur)="isIdentifyValide()"
                     class="flex-auto text-input"
                     [class.error]="!fieldState.identify"
                 />
@@ -112,17 +113,8 @@
 
             <div class="form-group flex-row">
                 <label for="signup-gender" class="pointer flex-none">你的性别是</label>
-                <!-- <select
-                    class="flex-auto gender selector"
-                    name="gender"
-                    [(ngModel)]="formData.gender"
-                >
-                    <option value="0">女 性</option>
-                    <option value="1">男 性</option>
-                    <option value="2">保 密</option>
-                </select> -->
                 <div class="flex-auto gender" id="signup-gender">
-                    <span>
+                    <span class="pull-left">
                         <input
                             type="radio"
                             name="gender"
@@ -132,8 +124,9 @@
                             class="pull-left"
                             [(ngModel)]="formData.gender"
                         />
+                        <p class="pull-left">女生</p>
                     </span>
-                    <span>
+                    <span class="pull-left">
                         <input
                             type="radio"
                             name="gender"
@@ -142,8 +135,9 @@
                             class="pull-left"
                             [(ngModel)]="formData.gender"
                         />
+                        <p class="pull-left">男生</p>
                     </span>
-                    <span>
+                    <span class="pull-left">
                         <input
                             type="radio"
                             name="gender"
@@ -152,6 +146,7 @@
                             class="pull-left"
                             [(ngModel)]="formData.gender"
                         />
+                        <p class="pull-left">保密</p>
                     </span>
                 </div>
             </div>

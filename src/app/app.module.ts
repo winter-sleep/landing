@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule }   from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SlicebarComponent } from './tools/slicebar/slicebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ServeService } from './signup/serve.service';
 
 
 @NgModule({
@@ -23,9 +25,10 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ServeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
