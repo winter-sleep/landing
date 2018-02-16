@@ -45,7 +45,7 @@ export class FooterComponent implements OnInit {
     {text: '意见建议', link: '/advise'},
   ];
 
-  public copyright = 'fragment.top 版权所有©layy, 2018, inc'
+  public copyright = 'fragment.top 版权所有©layy, 2018, inc';
 
   constructor() { }
 
