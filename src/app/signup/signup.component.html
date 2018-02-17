@@ -34,7 +34,7 @@
                         [(ngModel)]="formData.email"
                         placeholder="电子邮件地址"
                         class="flex-auto text-input"
-                        (blur)="isEmailValide()"
+                        (change)="isEmailValide()"
                         [class.error]="!fieldState.email"
                     />
                 </div>
@@ -43,21 +43,19 @@
 
             <div class="form-group">
                 <div class="field-body flex-row full-row">
-                    <label for="signup-identify" class="pointer flex-none">验证码</label>
+                    <label for="signup-nickname" class="pointer flex-none">你的名字</label>
                     <input type="text"
-                        id="signup-identify"
-                        name="identify"
-                        [(ngModel)]="formData.identify"
-                        placeholder="验证码"
-                        (blur)="isIdentifyValide()"
+                        id="signup-nickname"
+                        name="nickname"
+                        [(ngModel)]="formData.nickname"
+                        (blur)="isNicknameValide()"
+                        placeholder="怎么称呼您"
                         class="flex-auto text-input"
-                        [class.error]="!fieldState.identify"
+                        maxlength="32"
+                        [class.error]="!fieldState.nickname"
                     />
-                    <div class="identify-image flex-auto">
-                        <img src="#" class="pointer flex-auto" title="点击刷新验证码">
-                    </div>
                 </div>
-                <p class="message-box">{{messageBox.identify}}</p>
+                <p class="message-box">{{messageBox.nickname}}</p>
             </div>
 
             <div class="form-group">
@@ -119,22 +117,6 @@
 
         <!-- start of step3 -->
         <div class="form nomal-content hide" [class.show]="currentStep === 3">
-            <div class="form-group">
-                <div class="field-body flex-row full-row">
-                    <label for="signup-nickname" class="pointer flex-none">取个名字吧</label>
-                    <input type="text"
-                        id="signup-nickname"
-                        name="nickname"
-                        [(ngModel)]="formData.nickname"
-                        (blur)="isNicknameValide()"
-                        placeholder="怎么称呼您"
-                        class="flex-auto text-input"
-                        maxlength="32"
-                        [class.error]="!fieldState.nickname"
-                    />
-                </div>
-                <p class="message-box">{{messageBox.nickname}}</p>
-            </div>
 
             <div class="form-group">
                 <div class="field-body flex-row">
@@ -177,6 +159,25 @@
                     </div>
                 </div>
                 <p class="message-box">{{messageBox.gender}}</p>
+            </div>
+
+            <div class="form-group">
+                <div class="field-body flex-row full-row">
+                    <label for="signup-identify" class="pointer flex-none">验证码</label>
+                    <input type="text"
+                        id="signup-identify"
+                        name="identify"
+                        [(ngModel)]="formData.identify"
+                        placeholder="验证码"
+                        (blur)="isIdentifyValide()"
+                        class="flex-auto text-input"
+                        [class.error]="!fieldState.identify"
+                    />
+                    <div class="identify-image flex-auto">
+                        <img src="#" class="pointer flex-auto" title="点击刷新验证码">
+                    </div>
+                </div>
+                <p class="message-box">{{messageBox.identify}}</p>
             </div>
 
             <div class="form-group">

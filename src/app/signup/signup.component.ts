@@ -71,23 +71,19 @@ export class SignupComponent implements OnInit, AfterContentInit {
 
   public stepTwoHandle(): void {
     if (
-      this.isEmailValide() &&
-      this.isIdentifyValide()
+      this.fieldState.email &&
+      this.fieldState.nickname
     ) {
-      this.matchIdentify((data: any) => {
-        if (this.fieldState.identify) {
-          this.currentStep = 2;
-        }
-      });
+      this.currentStep = 2;
     }
   }
 
   public stepThreeHandle(): void {
     if (
-      this.isEmailValide() &&
-      this.isIdentifyValide() &&
-      this.isPasswordValide() &&
-      this.isrePasswordValide()
+      this.fieldState.email &&
+      this.fieldState.nickname &&
+      this.fieldState.password &&
+      this.fieldState.repassword
     ) {
       this.currentStep = 3;
     }
@@ -95,11 +91,11 @@ export class SignupComponent implements OnInit, AfterContentInit {
 
   public submitHandle(): void {
     if (
-      this.isEmailValide() &&
-      this.isIdentifyValide() &&
-      this.isPasswordValide() &&
-      this.isrePasswordValide() &&
-      this.isNicknameValide()
+      this.fieldState.email &&
+      this.fieldState.nickname &&
+      this.fieldState.password &&
+      this.fieldState.repassword &&
+      this.isIdentifyValide()
     ) {
       this.httpCreateUserHandle();
     }
@@ -109,7 +105,7 @@ export class SignupComponent implements OnInit, AfterContentInit {
     this.serveService.createUser(this.formData)
     .subscribe(data => {
       if (data.status === this.serveService.CREATED) {
-        alert('保存成功');
+        window.location.href = '/signin';
       }
     }, (error) => {
       if (error.status === 409) {
@@ -126,12 +122,14 @@ export class SignupComponent implements OnInit, AfterContentInit {
  * 验证 email 格式
  * 格式正确改变状态
  */
-  public isEmailValide(): Boolean {
+  public isEmailValide(): void {
     this.messageBox.email = '';
     const reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,4}){1,2})$/;
-    this.fieldState.email = reg.test(this.formData.email);
+    const _email = reg.test(this.formData.email);
     this.messageBox.email = this.fieldState.email ? '' : 'email 格式不正确~';
-    return this.fieldState.email;
+    if (_email) {
+      this.matchEmail();
+    }
   }
 
 /**
@@ -150,11 +148,25 @@ export class SignupComponent implements OnInit, AfterContentInit {
  * 调用接口检测验证码是否匹配, 通过 callback 传递验证信息
  * @param callback string 异步验证的回调函数
  */
-  public matchIdentify(callback: Function): void {
-    setTimeout(() => {
-      this.fieldState.identify = true;
-      callback();
-    }, 1);
+  public matchEmail(): void {
+    this.serveService.matchEmail(this.formData.email)
+    .subscribe(data => {
+      this.messageBox.email = '';
+      if (data.status === this.serveService.MATCHED) {
+        this.fieldState.email = false;
+        this.messageBox.email = '这个电子邮件已经注册了，请直接登录吧~';
+      }
+    }, (error) => {
+      if (error.status === 404) {
+        this.fieldState.email = true;
+        this.messageBox.email = '';
+      } else {
+        this.fieldState.email = false;
+        this.messageBox.email = '系统繁忙，检测电子邮件地址失败，请稍后再试~';
+      }
+      const step: Number = 1;
+      this.currentStep = step;
+    });
   }
 
   public validePasswordText(text: string): Boolean {
