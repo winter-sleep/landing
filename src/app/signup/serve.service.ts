@@ -3,11 +3,8 @@ import { SignupData } from './struct';
 import {
   HttpClient,
   HttpHeaders,
-  HttpResponse,
-  HttpErrorResponse
+  HttpResponse
 } from '@angular/common/http';
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 
 const httpOptions = {
@@ -25,8 +22,8 @@ export class ServeService {
   CREATED = 201;
   MATCHED = 200;
 
-  public createUrl = 'http://localhost/api/user';
-  public emailUrl = 'http://localhost/api/user/emailExist';
+  public createUrl = '/api/user';
+  public emailUrl = '/api/user/emailExist';
 
   constructor(
     private http: HttpClient

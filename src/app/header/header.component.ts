@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavButton, Logo } from './struct';
 import { HeaderService } from './header.service';
+import Cookies from 'js-cookie';
+
 
 @Component({
   selector: 'app-header',
@@ -29,8 +31,9 @@ export class HeaderComponent implements OnInit {
   };
 
   public service: HeaderService;
-
+  public isSignin: Boolean = false;
   public loaderState: Boolean;
+  public userImage: string;
 
   public constructor(
     headerService: HeaderService
@@ -40,6 +43,9 @@ export class HeaderComponent implements OnInit {
   }
 
   public ngOnInit() {
+    let token = Cookies.get('token');
+    this.isSignin = token ? true : false;
+    this.userImage = Cookies.get('userImage');
   }
 
 }

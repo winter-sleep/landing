@@ -1,0 +1,66 @@
+<div class="content">
+
+  <div class="middle flex-row">
+    <div class="left flex-none">
+      <div class="image">
+        <p class="no-select">life is fragment</p>
+      </div>
+    </div>
+
+    <div class="right flex-auto">
+      <div class="header no-select">
+        Fragment 通行证
+      </div>
+
+      <form class="form-content" (ngSubmit)="submitHandle()">
+
+        <div class="form-group">
+          <label for="signin-email" class="pointer">电子邮箱地址</label>
+          <div class="input-box">
+            <input
+              id="signin-email"
+              type="text"
+              name="email"
+              (blur)="isEmailValid()"
+              [(ngModel)]="formData.email"
+              placeholder="电子邮件"
+              [class.error]="!fieldState.email"
+            />
+          </div>
+          <p class="message-box">{{messageBox.email}}</p>
+        </div>
+
+        <div class="form-group">
+          <label for="signin-password" class="pointer">
+            通行证密码 <a class="nomal-link" href="#">忘记密码</a>
+          </label>
+          <div class="input-box">
+            <input
+              id="signin-password"
+              type="password"
+              name="password"
+              (blur)="isPasswordValid()"
+              [(ngModel)]="formData.password"
+              placeholder="通行证密码"
+              [class.error]="!fieldState.password"
+            />
+          </div>
+          <p class="message-box">{{messageBox.password}}</p>
+        </div>
+
+        <div class="form-group">
+          <div class="input-box">
+            <input class="signin-submit button center-block pointer" type="submit" [value]="submitText" />
+          </div>
+          <p class="message-box"></p>
+        </div>
+
+        <div class="form-group">
+          <p class="to-signup">还没有账户？真可怜，快去<a routerLink="/signup" class="nomal-link">注册</a>吧~</p>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

@@ -42,8 +42,6 @@ export class SignupComponent implements OnInit, AfterContentInit {
     gender: ''
   };
 
-  public emailTouched = false;
-
   public serveService: ServeService;
   public headerService: HeaderService;
 
@@ -60,9 +58,7 @@ export class SignupComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit() {
-    setTimeout(() => {
-      this.headerService.loaderState = true;
-    }, 2000);
+    this.headerService.loaderState = true;
   }
 
   public stepOneHandle(): void {

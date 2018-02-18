@@ -48,8 +48,6 @@
             background: $darkblue;
             border-left: 1px solid $darkblue;
             border-right: 1px solid $darkblue;
-            // transform: translate(0,0);
-		    // transition:all .3s ease-in 0s;
         }
 
         .account {
@@ -58,11 +56,70 @@
             height: 100%;
             font-size: .9em;
             color: $silver;
+            z-index: 10;
 
             a {
                 color: $light-blue;
                 line-height: $header-height;
                 font-size: .8rem;
+            }
+            .header-agent:hover {
+                .agent-list {
+                    display: block;
+                }
+            }
+            .header-agent {
+                position: relative;
+                height: 100%;
+                .header-agent-img {
+                    height: $header-height * 0.5;
+                    margin-top: $header-height * 0.25;
+                    width: auto;
+                }
+                .header-agent-caret {
+                    margin-top: ($header-height/2 - 9px)
+                }
+
+                .agent-list:hover {
+                    display: block;
+                }
+
+                .agent-list {
+                    display: none;
+                    background: $darkblue;
+                    $list-width: 100px;
+                    position: absolute;
+                    left: -($list-width - $header-height);
+                    top: $header-height;
+                    width: $list-width;
+                    height: auto;
+                    border: 1px solid $dark-gray;
+                    ul {
+                        width: 100%;
+                        height: auto;
+                        li {
+                            list-style: none;
+                            width: 100%;
+                            height: auto;
+                            font-size: .9rem;
+                            text-align: left;
+                            margin-top: 5px;
+                            a {
+                                display: block;
+                                width: 100%;
+                                height: 2rem;
+                                line-height: 2rem;
+                                text-decoration: none;
+                                color: $white-smoke;
+                                text-indent: 1rem;
+                            }
+                            a:hover {
+                                background: #0366d6;
+                                color: $white-smoke;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
