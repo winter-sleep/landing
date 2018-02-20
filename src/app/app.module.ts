@@ -2,20 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-// import { CookieService } from 'angular2-cookie/services/cookies.service';
-
-import { HeaderComponent } from './header/header.component';
-import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { SlicebarComponent } from './tools/slicebar/slicebar.component';
-import { FooterComponent } from './footer/footer.component';
-import { ServeService } from './signup/serve.service';
-import { SigninService } from './signin/signin.service';
-import { HeaderService } from './header/header.service';
-import { SigninComponent } from './signin/signin.component';
+
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './lib/header/header.component';
+import { SignupComponent } from './lib/signup/signup.component';
+import { SlicebarComponent } from './lib/tools/slicebar/slicebar.component';
+import { FooterComponent } from './lib/footer/footer.component';
+import { SigninComponent } from './lib/signin/signin.component';
+
+import { UserService } from './service/user.service';
 
 
 @NgModule({
@@ -34,10 +32,7 @@ import { SigninComponent } from './signin/signin.component';
     HttpClientModule,
   ],
   providers: [
-    ServeService,
-    HeaderService,
-    SigninService,
-    // CookieService,
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

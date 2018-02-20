@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
-import { SignupData, FieldState, MessageBox } from './struct';
-import { ServeService } from './serve.service';
-import { HeaderService } from '../header/header.service';
+import { SignupData, FieldState, MessageBox } from '../../struct/signup.struct';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -42,23 +41,26 @@ export class SignupComponent implements OnInit, AfterContentInit {
     gender: ''
   };
 
-  public serveService: ServeService;
-  public headerService: HeaderService;
+  public userService: UserService;
+  public captchaImage: string;
 
   constructor(
-    serveService: ServeService,
-    headerService: HeaderService
+    userService: UserService
   ) {
-    this.serveService = serveService;
-    this.headerService = headerService;
+    this.userService = userService;
+    this.changeCaptcha();
   }
 
   ngOnInit() {
-    this.headerService.loaderState = false;
   }
 
   ngAfterContentInit() {
-    this.headerService.loaderState = true;
+  }
+
+  public changeCaptcha(): void {
+    const date = new Date();
+    this.captchaImage = '/api/user/captcha?date=' + Date.parse(date.toString());
+    this.formData.identify = '';
   }
 
   public stepOneHandle(): void {
@@ -98,9 +100,9 @@ export class SignupComponent implements OnInit, AfterContentInit {
   }
 
   public httpCreateUserHandle() {
-    this.serveService.createUser(this.formData)
+    this.userService.createUser(this.formData)
     .subscribe(data => {
-      if (data.status === this.serveService.CREATED) {
+      if (data.status === this.userService.CREATED) {
         window.location.href = '/signin';
       }
     }, (error) => {
@@ -109,6 +111,7 @@ export class SignupComponent implements OnInit, AfterContentInit {
       } else {
         alert(error.error.mess);
       }
+      this.changeCaptcha();
       const step: Number = parseInt(error.error.step, 10);
       this.currentStep = step;
     });
@@ -135,7 +138,7 @@ export class SignupComponent implements OnInit, AfterContentInit {
     this.messageBox.identify = '';
     const message = '验证码错误, 您可能需要重新获取验证码~';
     const reg = /^[a-zA-Z0-9]{6}$/;
-    this.fieldState.identify = reg.test(this.formData.identify)
+    this.fieldState.identify = reg.test(this.formData.identify);
     this.messageBox.identify = this.fieldState.identify ? '' : message;
     return this.fieldState.identify;
   }
@@ -145,10 +148,10 @@ export class SignupComponent implements OnInit, AfterContentInit {
  * @param callback string 异步验证的回调函数
  */
   public matchEmail(): void {
-    this.serveService.matchEmail(this.formData.email)
+    this.userService.matchEmail(this.formData.email)
     .subscribe(data => {
       this.messageBox.email = '';
-      if (data.status === this.serveService.MATCHED) {
+      if (data.status === this.userService.SUCCESS) {
         this.fieldState.email = false;
         this.messageBox.email = '这个电子邮件已经注册了，请直接登录吧~';
       }

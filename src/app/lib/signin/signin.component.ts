@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SigninService } from './signin.service';
-import { SigninData, FieldState, MessageBox } from './struct';
+import { UserService } from '../../service/user.service';
+import { SigninData, FieldState, MessageBox } from '../../struct/signin.struct';
 
 @Component({
   selector: 'app-signin',
@@ -9,7 +9,7 @@ import { SigninData, FieldState, MessageBox } from './struct';
 })
 export class SigninComponent implements OnInit {
 
-  private service: SigninService;
+  private userService: UserService;
 
   public submitText: String = '登 录';
 
@@ -28,8 +28,8 @@ export class SigninComponent implements OnInit {
     password: ''
   };
 
-  constructor(signinService: SigninService) {
-    this.service = signinService;
+  constructor(userService: UserService) {
+    this.userService = userService;
   }
 
   ngOnInit() {
@@ -46,7 +46,7 @@ export class SigninComponent implements OnInit {
 
   private httpUserSigninHandle() {
     this.submitText = '处理中...';
-    this.service.userSignin(this.formData)
+    this.userService.userSignin(this.formData)
     .subscribe(data => {
       if (data.status === 200) {
         this.submitText = '登录成功';

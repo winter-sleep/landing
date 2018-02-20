@@ -21,13 +21,10 @@
           <ul>
             <li><a href="/">个人中心</a></li>
             <li><a href="/">设 置</a></li>
-            <li><a href="/">注 销</a></li>
+            <li><a href="javascript:void(0)" (click)="signoutHandle()">注 销</a></li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </nav>
-<div class="header-loader" [class.finish-loader]="service.loaderState">
-  <div class="am"></div>
-</div>

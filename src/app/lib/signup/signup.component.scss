@@ -1,4 +1,4 @@
-@import '../config.scss';
+@import '../../config.scss';
 
 $step-radio-size: 35px;
 $step-bar-height: 65px;
@@ -114,7 +114,7 @@ $field-height: 40px;
                         img {
                             width: 100%;
                             height: $field-height;
-                            margin-top: (60px - $field-height) / 2;
+                            // margin-top: (60px - $field-height) / 2;
                             margin-left: 5px;
                             border: 1px solid $white-smoke;
                         }

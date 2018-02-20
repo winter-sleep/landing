@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Linker, Linkbox } from './struct';
+import { Linker, Linkbox } from '../../struct/footer.struct';
 
 @Component({
   selector: 'app-footer',

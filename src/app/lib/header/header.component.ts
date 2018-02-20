@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavButton, Logo } from './struct';
-import { HeaderService } from './header.service';
+import { NavButton, Logo } from '../../struct/header.struct';
+import { UserService } from '../../service/user.service';
 import Cookies from 'js-cookie';
 
 
@@ -10,6 +10,8 @@ import Cookies from 'js-cookie';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  public userService: UserService;
 
   /**
    * 导航栏标准按钮
@@ -30,22 +32,39 @@ export class HeaderComponent implements OnInit {
     href: '/'
   };
 
-  public service: HeaderService;
   public isSignin: Boolean = false;
   public loaderState: Boolean;
   public userImage: string;
 
-  public constructor(
-    headerService: HeaderService
+  constructor(
+    userService: UserService
   ) {
-    this.service = headerService;
-    this.loaderState = this.service.loaderState;
+    this.userService = userService;
   }
 
   public ngOnInit() {
-    let token = Cookies.get('token');
+    const token = Cookies.get('token');
     this.isSignin = token ? true : false;
     this.userImage = Cookies.get('userImage');
+  }
+
+  /**
+   * 注销接口
+   */
+  public signoutHandle() {
+    this.userService.signout()
+    .subscribe(data => {
+      if (data.status === this.userService.SUCCESS) {
+        setTimeout(() => {
+          window.location.reload(true);
+        }, 500);
+      }
+    }, (error) => {
+      if (error.status === 409) {
+        alert(error.error.mess);
+      }
+      window.location.reload(true);
+    });
   }
 
 }

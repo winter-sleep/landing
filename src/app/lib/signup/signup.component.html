@@ -174,7 +174,7 @@
                         [class.error]="!fieldState.identify"
                     />
                     <div class="identify-image flex-auto">
-                        <img src="#" class="pointer flex-auto" title="点击刷新验证码">
+                        <img (click)="changeCaptcha()" [src]="captchaImage" class="pointer flex-auto" title="点击刷新验证码">
                     </div>
                 </div>
                 <p class="message-box">{{messageBox.identify}}</p>
