@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
 import { SignupData } from '../struct/signup.struct';
 import { SigninData } from '../struct/signin.struct';
 import {
   HttpClient,
+  HttpHeaders,
   HttpResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { BasicService } from './basic.service';
 
-@Injectable()
 export class UserService extends BasicService {
 
   public createUrl = '/api/user';
@@ -34,12 +33,32 @@ export class UserService extends BasicService {
     return this.http.post<any>(this.signinUrl, signinData, this.httpOptions);
   }
 
-  public signout(): Observable<HttpResponse<any>> {
+  public signout(): void {
     this.httpOptions['observe'] = 'response';
-    return this.http.get<any>(
+    this.http.get<any>(
       this.signoutUrl,
       this.httpOptions
-    );
+    ).subscribe(data => {
+      if (data.status === this.SUCCESS) {
+        setTimeout(() => {
+          window.location.reload(true);
+        }, 500);
+      }
+    }, (error) => {
+      if (error.status === 409) {
+        alert(error.error.mess);
+      }
+      window.location.reload(true);
+    });
+  }
+
+  public isLogin(): Boolean {
+    const token = this.getToken();
+    return !this.empty(token);
+  }
+
+  public getAvatarImage(width: number, height: number): string {
+    return '/static/userimage/' + width + 'x' + height + '.png';
   }
 
 }

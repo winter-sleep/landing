@@ -156,7 +156,7 @@ export class SignupComponent implements OnInit, AfterContentInit {
         this.messageBox.email = '这个电子邮件已经注册了，请直接登录吧~';
       }
     }, (error) => {
-      if (error.status === 404) {
+      if (error.status === this.userService.NOT_FOUND) {
         this.fieldState.email = true;
         this.messageBox.email = '';
       } else {

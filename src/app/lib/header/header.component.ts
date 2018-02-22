@@ -43,28 +43,16 @@ export class HeaderComponent implements OnInit {
   }
 
   public ngOnInit() {
-    const token = Cookies.get('token');
-    this.isSignin = token ? true : false;
+    this.isSignin = this.userService.isLogin();
     this.userImage = Cookies.get('userImage');
+    // console.log(this.userService.info());
   }
 
   /**
    * 注销接口
    */
   public signoutHandle() {
-    this.userService.signout()
-    .subscribe(data => {
-      if (data.status === this.userService.SUCCESS) {
-        setTimeout(() => {
-          window.location.reload(true);
-        }, 500);
-      }
-    }, (error) => {
-      if (error.status === 409) {
-        alert(error.error.mess);
-      }
-      window.location.reload(true);
-    });
+    this.userService.signout();
   }
 
 }
