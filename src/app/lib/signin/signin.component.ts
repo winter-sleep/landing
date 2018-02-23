@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
+import { DialogService } from '../../service/dialog.service';
 import { SigninData, FieldState, MessageBox } from '../../struct/signin.struct';
 
 @Component({
@@ -8,8 +9,6 @@ import { SigninData, FieldState, MessageBox } from '../../struct/signin.struct';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-
-  private userService: UserService;
 
   public submitText: String = '登 录';
 
@@ -28,9 +27,10 @@ export class SigninComponent implements OnInit {
     password: ''
   };
 
-  constructor(userService: UserService) {
-    this.userService = userService;
-  }
+  constructor(
+    public userService: UserService,
+    public dialogService: DialogService
+  ) { }
 
   ngOnInit() {
   }
@@ -57,11 +57,18 @@ export class SigninComponent implements OnInit {
     }, (error) => {
       if (error.status === 409) {
         alert(error.error.mess);
+      } else if (error.status === 403) {
+        this.dialogService.confirmHandle = this.resendEmail;
+        this.dialogService.show(error.error.mess);
       } else {
         alert('系统繁忙，请稍后再试~');
       }
       this.submitText = '登 录';
     });
+  }
+
+  private resendEmail() {
+    alert('email');
   }
 
 /**

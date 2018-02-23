@@ -12,9 +12,11 @@ import { SignupComponent } from './lib/signup/signup.component';
 import { SlicebarComponent } from './lib/tools/slicebar/slicebar.component';
 import { FooterComponent } from './lib/footer/footer.component';
 import { SigninComponent } from './lib/signin/signin.component';
+import { DialogComponent } from './lib/tools/dialog/dialog.component';
 
 import { UserService } from './service/user.service';
 import { CookieService } from 'ng2-cookies';
+import { DialogService } from './service/dialog.service';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { CookieService } from 'ng2-cookies';
     SlicebarComponent,
     FooterComponent,
     SigninComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { CookieService } from 'ng2-cookies';
   providers: [
     UserService,
     CookieService,
+    DialogService,
   ],
   bootstrap: [AppComponent]
 })

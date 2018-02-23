@@ -1,0 +1,88 @@
+@import '../../../config.scss';
+
+#fragment-dialog {
+    $fd-width: 440px;
+    $fd-height: 220px;
+    $fd-header-height: 48px;
+    $fd-footer-height: 58px;
+    $df-content-height: $fd-height - $fd-header-height - $fd-footer-height - 32px;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+
+    .fd-root {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        margin-left: -($fd-width/2);
+        margin-top: -($fd-height/1.5);
+        background: $white-smoke;
+        width: $fd-width;
+        height: $fd-height;
+
+        .fd-header {
+            width: 100%;
+            height: $fd-header-height;
+            line-height: $fd-header-height;
+            background: $darkblue;
+            color: $white-smoke;
+            p {
+                width: auto;
+                height: 100%;
+                font-size: 1rem;
+                text-indent: 1.5rem;
+                text-shadow: 1px 0 1px $pop-dark;
+            }
+            a {
+                width: $fd-header-height;
+                height: $fd-header-height;
+                display: block;
+                text-decoration: none;
+                color: $white-smoke;
+                text-align: center;
+                font-size: 1.3rem;
+                font-weight: bold;
+            }
+            a:hover {
+                color: $lightred;
+            }
+        }
+
+        .fd-content {
+            width: $fd-width - 32px;
+            padding: 16px;
+            height: $df-content-height;
+            font-size: 1.3rem;
+            color: $font-base;
+            text-shadow: 0 1px 1px #FFF;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+
+        .fd-footer {
+            width: $fd-width - 32px;
+            height: $fd-footer-height;
+            padding: 0;
+            .cancel, .func {
+                width: 100px;
+                height: 35px;
+                font-size: .9rem;
+                line-height: 35px;
+                border-radius: 3px;
+                background: $silver;
+                color: $fillter-blue;
+                margin-left: 100px;
+                margin-top: 12px;
+            }
+            .func {
+                margin-left: 40px;
+                background: $cornflower-blue;
+                color: $white-smoke;
+            }
+        }
+    }
+}

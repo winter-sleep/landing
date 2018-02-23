@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavButton, Logo } from '../../struct/header.struct';
 import { UserService } from '../../service/user.service';
+import { DialogService } from '../../service/dialog.service';
 import Cookies from 'js-cookie';
 
 
@@ -12,6 +13,7 @@ import Cookies from 'js-cookie';
 export class HeaderComponent implements OnInit {
 
   public userService: UserService;
+  public dialogService: DialogService;
 
   /**
    * 导航栏标准按钮
@@ -37,9 +39,11 @@ export class HeaderComponent implements OnInit {
   public userImage: string;
 
   constructor(
-    userService: UserService
+    userService: UserService,
+    dialogService: DialogService
   ) {
     this.userService = userService;
+    this.dialogService = dialogService;
   }
 
   public ngOnInit() {
