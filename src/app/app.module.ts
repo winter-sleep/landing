@@ -14,6 +14,7 @@ import { FooterComponent } from './lib/footer/footer.component';
 import { SigninComponent } from './lib/signin/signin.component';
 
 import { UserService } from './service/user.service';
+import { CookieService } from 'ng2-cookies';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { UserService } from './service/user.service';
   ],
   providers: [
     UserService,
+    CookieService,
   ],
   bootstrap: [AppComponent]
 })

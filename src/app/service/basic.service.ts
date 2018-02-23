@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import Cookies from 'js-cookie';
+import { CookieService } from 'ng2-cookies';
 
 @Injectable()
 export class BasicService {
@@ -38,8 +38,6 @@ export class BasicService {
   public MIME_EXCEL = 'application/vnd.ms-excel';
   public MIME_CSV = 'text/csv';
 
-  public cookies = Cookies;
-
   protected httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': this.MIME_JSON,
@@ -50,12 +48,14 @@ export class BasicService {
   };
 
   public constructor(
-    public http: HttpClient
+    public http: HttpClient,
+    public cookieService: CookieService
   ) { }
 
   public getToken(): string {
-    const token = this.cookies.get('token');
-    return token ? token : '';
+    const token = this.cookieService.get('token');
+    console.log(token);
+    return token;
   }
 
   public empty(value: any): Boolean {
