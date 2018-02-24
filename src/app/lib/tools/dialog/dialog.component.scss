@@ -2,7 +2,7 @@
 
 #fragment-dialog {
     $fd-width: 440px;
-    $fd-height: 220px;
+    $fd-height: 200px;
     $fd-header-height: 48px;
     $fd-footer-height: 58px;
     $df-content-height: $fd-height - $fd-header-height - $fd-footer-height - 32px;
@@ -48,7 +48,7 @@
                 font-weight: bold;
             }
             a:hover {
-                color: $lightred;
+                color: $cornflower-blue;
             }
         }
 

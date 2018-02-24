@@ -1,11 +1,11 @@
 <div id="fragment-dialog" [class.hide]="dialogService.hidden">
   <div class="fd-root">
-    <div class="fd-header pull-left">
+    <div class="fd-header no-select pull-left">
       <p class="pull-left">{{ dialogService.title }}</p>
-      <a href="javascript:void(0)" (click)="closeHandle()" class="close pull-right">⨯</a>
+      <a href="javascript:void(0)" (click)="closeHandle()" class="close pull-right">×</a>
     </div>
     <div class="fd-content pull-left">{{ dialogService.content }}</div>
-    <div class="fd-footer pull-left">
+    <div class="fd-footer no-select pull-left">
       <a href="javascript:void(0)" (click)="closeHandle()" class="cancel button pull-left">
         取 消
       </a>
