@@ -1,0 +1,35 @@
+@import '../../config.scss';
+@import '../signin/signin.component.scss';
+
+.content {
+    max-width: $content-width - $font-size;
+    padding: 0 .5rem 0 .5rem;
+
+    .active-head {
+        width: 100%;
+        height: 100px;
+        h1 {
+            font-size: 1.5rem;
+            line-height: 100px;
+            font-weight: normal;
+            text-align: center;
+        }
+    }
+
+    .active-middle {
+        width: 100%;
+        height: 200px;
+
+        .split-bar {
+            height: 16px;
+            width: 100%;
+        }
+        
+        .form-content {
+            max-width: 500px;
+            .field-body {
+                height: 50px;
+            }
+        }
+    }
+}

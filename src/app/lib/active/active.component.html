@@ -1,3 +1,42 @@
-<p>
-  active works!
-</p>
+<div class="content">
+
+  <div class="active-head">
+    <h1>重新发送激活邮件</h1>
+  </div>
+
+  <div class="active-middle">
+    <form class="form-content center-block" (ngSubmit)="submitHandle()">
+
+      <div class="form-group">
+        <div class="input-box">
+          <input
+            id="signin-email"
+            type="text"
+            name="email"
+            [(ngModel)]="email"
+            placeholder="电子邮件"
+          />
+        </div>
+      </div>
+
+      <div class="split-bar"></div>
+
+      <div class="form-group">
+        <div class="field-body flex-row full-row">
+          <input type="text"
+            id="signup-identify"
+            name="identify"
+            [(ngModel)]="identify"
+            placeholder="验证码"
+            class="flex-auto text-input"
+          />
+          <div class="identify-image flex-auto">
+            <img (click)="changeCaptcha()" [src]="captchaImage" class="pointer flex-auto" title="点击刷新验证码">
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>

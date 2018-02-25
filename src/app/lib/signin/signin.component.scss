@@ -59,61 +59,67 @@
                 width: 80%;
                 height: auto;
                 padding: 0 10% 1rem 10%;
+            }
+        }
+    }
+}
 
-                .form-group {
-                    width: 100%;
-                    height: auto;
-                    * {
-                        width: 100%;
-                        height: auto;
-                    }
-                    label {
-                        padding: 10px 0 10px 0;
-                        font-size: .8rem;
-                        font-weight: bold;
-                        color: $pop-dark;
-                        a {
-                            width: auto;
-                            float: right;
-                            font-size: .8px;
-                        }
-                    }
-                    .input-box {
-                        min-height: 30px;
-                        padding: 3px 0 3px 0;
-                        input {
-                            font-size: .9rem;
-                            height: 30px;
-                            text-indent: 1rem;
-                        }
-                        .signin-submit {
-                            margin-top: 1rem;
-                            height: 40px;
-                            background: $royal-blue;
-                            color: $white-smoke;
-                            text-indent:0;
-                        }
-                    }
-                    .message-box {
-                        font-size: .8rem;
-                        color: $lightred;
-                    }
+.form-content {
+    width: 80%;
+    height: auto;
+    padding: 0 10% 1rem 10%;
 
-                    input.error {
-                        border-color: $lightred;
-                    }
+    .form-group {
+        width: 100%;
+        height: auto;
+        * {
+            width: 100%;
+            height: auto;
+        }
+        label {
+            padding: 10px 0 10px 0;
+            font-size: .8rem;
+            font-weight: bold;
+            color: $pop-dark;
+            a {
+                width: auto;
+                float: right;
+                font-size: .8px;
+            }
+        }
+        .input-box {
+            min-height: 30px;
+            padding: 3px 0 3px 0;
+            input {
+                font-size: .9rem;
+                height: 30px;
+                text-indent: 1rem;
+            }
+            .signin-submit {
+                margin-top: 1rem;
+                height: 40px;
+                background: $royal-blue;
+                color: $white-smoke;
+                text-indent:0;
+            }
+        }
+        .message-box {
+            font-size: .8rem;
+            color: $lightred;
+        }
 
-                    .to-signup {
-                        height: 30px;
-                        line-height: 30px;
-                        font-size: .8rem;
-                        color: $font-base;
-                        a {
-                            font-weight: bold;
-                            font-size: .8rem;
-                        }
-                    }
-                }
+        input.error {
+            border-color: $lightred;
+        }
+
+        .to-signup {
+            height: 30px;
+            line-height: 30px;
+            font-size: .8rem;
+            color: $font-base;
+            a {
+                font-weight: bold;
+                font-size: .8rem;
             }
         }
     }
