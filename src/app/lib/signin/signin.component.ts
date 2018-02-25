@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import { DialogService } from '../../service/dialog.service';
 import { SigninData, FieldState, MessageBox } from '../../struct/signin.struct';
@@ -29,7 +30,9 @@ export class SigninComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    public dialogService: DialogService
+    public dialogService: DialogService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -56,10 +59,12 @@ export class SigninComponent implements OnInit {
       }
     }, (error) => {
       if (error.status === 409) {
-        alert(error.error.mess);
+        this.dialogService.show(error.error.mess, true);
       } else if (error.status === 403) {
-        this.dialogService.confirmHandle = this.resendEmail;
-        this.dialogService.show(error.error.mess);
+        this.dialogService.confirmHandle(() => {
+          this.resendEmail();
+        });
+        this.dialogService.show(error.error.mess, false);
       } else {
         alert('系统繁忙，请稍后再试~');
       }
@@ -68,7 +73,9 @@ export class SigninComponent implements OnInit {
   }
 
   private resendEmail() {
-    alert('email');
+    setTimeout(() => {
+      this.router.navigate(['/active'], {relativeTo: this.route});
+    }, 400);
   }
 
 /**
