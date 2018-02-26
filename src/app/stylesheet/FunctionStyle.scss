@@ -1,0 +1,7 @@
+@function horizontalSideSpace($size) {
+    @return 0 $size 0 $size;
+}
+
+@function nomalBorder($color) {
+    @return 1px solid $color;
+}

@@ -1,5 +1,58 @@
 @import '../config.scss';
 
 .content {
-    max-width: $content-width;
+    max-width: $content-width - $font-size;
+    min-width: 860px;
+    height: auto;
+    padding: 0 .5rem 0 .5rem;
+}
+
+.full-width {
+    max-width: 100%;
+    max-height: auto;
+}
+
+.full-height {
+    max-height: 100%;
+    max-width: auto;
+}
+
+.full-block {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.nomal-link {
+    cursor: pointer;
+    text-decoration:none;
+    color: $royal-blue;
+    &:hover {
+        color: $royal-blue;
+    }
+}
+
+.nomal-list {
+    list-style: none;
+    text-align: left;
+}
+
+.nomal-block {
+    display: block;
+    clear: both;
+}
+
+.hidden {
+    display: none;
 }

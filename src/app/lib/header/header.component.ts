@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavButton, Logo } from '../../struct/header.struct';
 import { UserService } from '../../service/user.service';
 import { DialogService } from '../../service/dialog.service';
-import Cookies from 'js-cookie';
 
 
 @Component({
@@ -48,8 +47,7 @@ export class HeaderComponent implements OnInit {
 
   public ngOnInit() {
     this.isSignin = this.userService.isLogin();
-    this.userImage = Cookies.get('userImage');
-    // console.log(this.userService.info());
+    this.userImage = this.userService.getAvatarImage(24, 24);
   }
 
   /**

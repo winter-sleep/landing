@@ -1,0 +1,92 @@
+@import './BasicStyle.scss';
+@import './FunctionStyle.scss';
+
+/**
+ * 普通链接样式
+ * $color string 字体颜色
+ * $hoverColor string 字体 hover 颜色
+ */
+@mixin text-link($color, $hoverColor) {
+    @extend .nomal-link;
+    color: $color;
+    &:hover {
+        @if $hoverColor {
+            color: $hoverColor;
+        } @else {
+            color: $color;
+        }
+    }
+}
+
+/**
+ * 单行块 字体垂直居中
+ * $height dom块高度
+ */
+@mixin single-row($height) {
+    height: $height;
+    line-height: $height;
+}
+
+/**
+ * 圆形
+ */
+@mixin circular($size) {
+    width: $size;
+    height: $size;
+    line-height: $size;
+    text-align: center;
+    font-weight: bold;
+}
+
+/**
+ * 下拉菜单
+ * 格式: dropdown > ul > li > a
+ * $listWidth 菜单宽度
+ * $listTop 按钮高度
+ * $linkColor a 标签字体颜色
+ * $hoverLinkColor a标签 hover 颜色
+ * $backColor 背景色
+ * $hoverBackColor 背景hover色
+ * $mode 模式，列表停靠的模式 (left/right/middle)
+ */
+@mixin dropdown($listWidth, $listTop, $linkColor, $hoverLinkColor, $backColor, $hoverBackColor, $mode: middle) {
+    @extend .hidden;
+    $list-top: $listTop;
+
+    position: absolute;
+    background: $backColor;
+    @if $mode == right {
+        left: 0;
+    } @else if $mode == left {
+        right: 0;
+    } @else {
+        left: -($listWidth / 2);
+    }
+    top: $list-top;
+    width: $listWidth;
+    border: nomalBorder($dark-gray);
+    ul {
+        @extend .full-width;
+        li {
+            @extend .full-width;
+            @extend .nomal-list;
+            font-size: .9rem;
+            margin-top: 4px;
+            a {
+                @extend .full-width;
+                @extend .nomal-block;
+                @include single-row(2rem);
+                @include text-link($linkColor, null);
+                text-indent: 1rem;
+            }
+            a:hover {
+                background: $hoverBackColor;
+                color: $hoverLinkColor;
+            }
+        }
+    }
+
+    &:hover {
+        @extend .nomal-block;
+    }
+}

@@ -1,0 +1,39 @@
+@import '../../stylesheet/BasicStyle';
+@import '../../stylesheet/FunctionStyle';
+@import '../../stylesheet/MixinStyle';
+
+.appLogo, .header-btn {
+    @include single-row($header-height);
+    padding: horizontalSideSpace(.5em);
+    border-left: 1px solid $pop-dark;
+    border-right: 1px solid $pop-dark;
+}
+
+.appLogo {
+    margin-left: .5rem;
+    color: $cornflower-blue;
+}
+.appLogo:hover {
+    color: $light-blue;
+}
+
+.header-btn {
+    margin-left: 1em;
+    $btn-size: 24px;
+    img {
+        width: $btn-size;
+        height: $btn-size;
+        margin-top: 6px;
+    }
+    p {
+        @extend .full-height;
+        color: $silver;
+        font-size: .9rem;
+        padding: 0 0 0 2px;
+    }
+}
+.header-btn:hover {
+    background: $darkblue;
+    border-left: 1px solid $darkblue;
+    border-right: 1px solid $darkblue;
+}

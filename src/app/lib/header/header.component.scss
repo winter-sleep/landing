@@ -1,150 +1,53 @@
 @import '../../config';
+@import '../../stylesheet/BasicStyle';
+@import '../../stylesheet/FunctionStyle';
+@import '../../stylesheet/MixinStyle';
+@import '../../stylesheet/HeaderStyle';
 
 .header {
-    width: 100%;
     height: $header-height;
     background: $pop-dark;
 
     .midbar {
-        max-width: $content-width;
-        min-width: 600px;
-        height: 100%;
-
-        .appLogo, .header-btn {
-            height: 100%;
-            line-height: $header-height;
-            width: auto;
-            padding: 0 .5em 0 .5em;
-            // font-size: .9rem;
-            border-left: 1px solid $pop-dark;
-            border-right: 1px solid $pop-dark;
-        }
-        .appLogo {
-            font-weight: bold;
-            margin-left: .5rem;
-            color: $cornflower-blue;
-        }
-
-        .header-btn {
-            margin-left: 1em;
-            img {
-                width: 24px;
-                height: 24px;
-                margin-top: 6px;
-            }
-            p {
-                height: 100%;
-                color: $silver;
-                font-size: .9rem;
-                padding: 0 0 0 2px;
-            }
-        }
-        
-        .appLogo:hover {
-            color: $light-blue;
-        }
-
-        .header-btn:hover {
-            background: $darkblue;
-            border-left: 1px solid $darkblue;
-            border-right: 1px solid $darkblue;
-        }
-
         .account {
-            width: auto;
-            padding: 0 10px 0 10px;
-            height: 100%;
+            padding: horizontalSideSpace(10px);
             font-size: .9em;
             color: $silver;
             z-index: 10;
 
             a {
-                color: $light-blue;
+                @include text-link($light-blue, $light-blue);
                 line-height: $header-height;
                 font-size: .8rem;
             }
             .header-agent:hover {
                 .agent-list {
-                    display: block;
+                    @extend .nomal-block;
                 }
             }
             .header-agent {
                 position: relative;
-                height: 100%;
                 .header-agent-img {
                     height: $header-height * 0.5;
                     margin-top: $header-height * 0.25;
-                    width: auto;
                 }
                 .header-agent-caret {
                     margin-top: ($header-height/2 - 9px)
                 }
 
-                .agent-list:hover {
-                    display: block;
-                }
-
                 .agent-list {
-                    display: none;
-                    background: $darkblue;
-                    $list-width: 100px;
-                    position: absolute;
-                    left: -($list-width - $header-height);
-                    top: $header-height;
-                    width: $list-width;
-                    height: auto;
-                    border: 1px solid $dark-gray;
-                    ul {
-                        width: 100%;
-                        height: auto;
-                        li {
-                            list-style: none;
-                            width: 100%;
-                            height: auto;
-                            font-size: .9rem;
-                            text-align: left;
-                            margin-top: 5px;
-                            a {
-                                display: block;
-                                width: 100%;
-                                height: 2rem;
-                                line-height: 2rem;
-                                text-decoration: none;
-                                color: $white-smoke;
-                                text-indent: 1rem;
-                            }
-                            a:hover {
-                                background: #0366d6;
-                                color: $white-smoke;
-                            }
-                        }
-                    }
+                    @extend .hidden;
+                    @include dropdown(
+                        $listWidth: 100px,
+                        $listTop: $header-height - 5px,
+                        $linkColor: $darkblue,
+                        $hoverLinkColor: $white-smoke,
+                        $backColor: $white-smoke,
+                        $hoverBackColor: $python-blue,
+                        $mode: left
+                    );
                 }
             }
         }
     }
-}
-.header-loader {
-    width: 100%;
-    height: 3px;
-    background: #FFF;
-    overflow:hidden;
-
-    @keyframes mymove {
-        from {left:0;}
-        to {left:100%;}
-    }
-    .am {
-        float: left;
-        position: relative;
-        left:0;
-        width: 20%;
-        height: 100%;
-        background: $royal-blue;
-        animation:mymove 1s infinite;
-        -webkit-animation: mymove 1s infinite;
-    }
-}
-.finish-loader {
-    visibility:hidden;
 }

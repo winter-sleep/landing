@@ -1,4 +1,7 @@
 @import '../../config.scss';
+@import '../../stylesheet/BasicStyle';
+@import '../../stylesheet/FunctionStyle';
+@import '../../stylesheet/MixinStyle';
 
 $step-radio-size: 35px;
 $step-bar-height: 65px;
@@ -6,51 +9,36 @@ $middle-width: 60%;
 $field-height: 40px;
 
 .content {
-    max-width: $content-width - $font-size;
-    height: auto;
-    padding: 0 .5rem 0 .5rem;
-
     .top {
-        width: 100%;
-        height: 100px;
-        text-align: center;
-        line-height: 100px;
+        @include single-row(100px);
         h2 {
             font-size: 1.5rem;
-            font-weight: bold;
             color: $python-blue;
         }
     }
     .step-bar {
-        width: 100%;
         height: $step-bar-height;
         border-bottom: 1px solid $silver;
 
         .midbar {
             width: 60%;
-            height: 100%;
             .step {
-                width: 100%;
                 height: $step-radio-size;
                 margin: ($step-bar-height - $step-radio-size)/2 0 0 0;
 
                 p {
-                    width: auto;
+                    @extend .full-height;
                     padding-left: 10px;
-                    height: 100%;
                     line-height: $step-radio-size;
                     color: $font-base;
                 }
 
                 .step-radio {
+                    @extend .text-bold;
+                    @include circular($step-radio-size);
                     background: $dark-gray;
-                    width: $step-radio-size;
-                    height: $step-radio-size;
                     color: $white-smoke;
-                    line-height: $step-radio-size;
-                    text-align: center;
                     font-size: 1rem;
-                    font-weight: bold;
                 }
                 .light {
                     background: $royal-blue;
@@ -61,7 +49,6 @@ $field-height: 40px;
 
     .form-content {
         max-width: $middle-width;
-        height: auto;
         padding-top: 60px;
         .form {
             .form-group {

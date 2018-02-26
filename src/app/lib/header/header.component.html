@@ -1,6 +1,6 @@
-<nav class="header">
-  <div class="midbar center-block">
-    <a class="appLogo nomal-link pull-left block" href="{{logo.href}}">{{ logo.text }}</a>
+<nav class="header full-width">
+  <div class="midbar center-block content">
+    <a class="appLogo nomal-link pull-left block text-bold" href="{{logo.href}}">{{ logo.text }}</a>
     <a *ngFor="let btn of navbtn"
       routerLink="{{btn.href}}"
       class="header-btn flex-row nomal-link pull-left block"
@@ -9,12 +9,12 @@
       <p class="flex-auto">{{ btn.text }}</p>
     </a>
 
-    <div class="account pull-right" [class.hide]="isSignin">
+    <div class="account pull-right full-height" [class.hide]="isSignin">
       <a routerLink="/signin" class="nomal-link">登录</a> | 
       <a routerLink="/signup" class="nomal-link">注册</a>
     </div>
     <div class="account pull-right pointer" [class.hide]="!isSignin">
-      <div class="header-agent pull-left">
+      <div class="header-agent pull-left full-height">
         <img [src]="userImage" class="header-agent-img pull-left" />
         <span class="caret header-agent-caret"></span>
         <div class="agent-list">
