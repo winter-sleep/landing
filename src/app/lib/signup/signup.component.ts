@@ -68,6 +68,9 @@ export class SignupComponent implements OnInit, AfterContentInit {
   }
 
   public stepTwoHandle(): void {
+    this.emailSimpleValidate();
+    this.isNicknameValide();
+    console.log(this.fieldState);
     if (
       this.fieldState.email &&
       this.fieldState.nickname
@@ -77,6 +80,10 @@ export class SignupComponent implements OnInit, AfterContentInit {
   }
 
   public stepThreeHandle(): void {
+    this.emailSimpleValidate();
+    this.isNicknameValide();
+    this.isPasswordValide();
+    this.isrePasswordValide();
     if (
       this.fieldState.email &&
       this.fieldState.nickname &&
@@ -122,25 +129,25 @@ export class SignupComponent implements OnInit, AfterContentInit {
  * 格式正确改变状态
  */
   public isEmailValide(): void {
-    this.messageBox.email = '';
-    const reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,4}){1,2})$/;
-    const _email = reg.test(this.formData.email);
-    this.messageBox.email = this.fieldState.email ? '' : 'email 格式不正确~';
+    const _email = this.emailSimpleValidate();
     if (_email) {
+      this.fieldState.email = false;
       this.matchEmail();
     }
   }
 
-/**
-* 提供验证码格式验证功能
-*/
-  public isIdentifyValide(): Boolean {
-    this.messageBox.identify = '';
-    const message = '验证码错误, 您可能需要重新获取验证码~';
-    const reg = /^[a-zA-Z0-9]{6}$/;
-    this.fieldState.identify = reg.test(this.formData.identify);
-    this.messageBox.identify = this.fieldState.identify ? '' : message;
-    return this.fieldState.identify;
+  private emailSimpleValidate(): Boolean {
+    this.fieldState.email = false;
+    this.messageBox.email = '';
+    const reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,4}){1,2})$/;
+    const _email = reg.test(this.formData.email);
+    if (! _email) {
+      this.messageBox.email = 'email 格式不正确~';
+    } else {
+      this.fieldState.email = true;
+      this.messageBox.email = '';
+    }
+    return _email;
   }
 
 /**
@@ -167,6 +174,18 @@ export class SignupComponent implements OnInit, AfterContentInit {
       this.currentStep = step;
     });
   }
+
+/**
+* 提供验证码格式验证功能
+*/
+public isIdentifyValide(): Boolean {
+  this.messageBox.identify = '';
+  const message = '验证码错误, 您可能需要重新获取验证码~';
+  const reg = /^[a-zA-Z0-9]{6}$/;
+  this.fieldState.identify = reg.test(this.formData.identify);
+  this.messageBox.identify = this.fieldState.identify ? '' : message;
+  return this.fieldState.identify;
+}
 
   public validePasswordText(text: string): Boolean {
     const reg = /^[\d\w]{6,32}$/;

@@ -2,6 +2,10 @@
     @return 0 $size 0 $size;
 }
 
+@function verticalSideSpace($size) {
+    @return $size 0 $size 0;
+}
+
 @function nomalBorder($color) {
     @return 1px solid $color;
 }

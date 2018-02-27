@@ -90,3 +90,98 @@
         @extend .nomal-block;
     }
 }
+
+/**
+ * 表单组
+ * $fieldWidth input组的宽度百分比(input组的宽度将影响label的宽度, 当设为100%时label将位于独立行)
+ * $fieldHeight input和label组的高度
+ * $marginSize 上下的边距
+ */
+@mixin forms($fieldWidth, $fieldHeight, $marginSize) {
+    @extend .full-width;
+
+    $labelWidth: 100% - $fieldWidth;
+
+    .form-group {
+        @extend .full-width;
+        margin: verticalSideSpace($marginSize);
+
+        .field-body {
+            @extend .full-width;
+            @extend .flex-row;
+            input.error {
+                border-color: $lightred;
+            }
+
+            label, .text-input, .radio-inputs {
+                height: $fieldHeight;
+                color: $font-base;
+            }
+
+            label {
+                @extend .text-bold;
+                @extend .flex-auto;
+                line-height: $fieldHeight;
+            }
+
+            .text-input, .radio-inputs {
+                width: $fieldWidth;
+                font-size: 1rem;
+            }
+
+            .text-input {
+                @extend .flex-none;
+                text-indent: 1rem;
+                border: nomalBorder($silver);
+                border-left: 3px solid $cornflower-blue;
+            }
+
+            .radio-inputs, .radio-inputs .radio-group, .radio-inputs input[type='radio'], .radio-inputs p {
+                float: left;
+            }
+
+            .radio-inputs {
+                @extend .flex-none;
+
+                .radio-group {
+                    position: relative;
+                    $radio-group-height: $fieldHeight / 2;
+                    height: $radio-group-height;
+                    width: 4em;
+                    top: 50%;
+                    margin-top: -$radio-group-height/2;
+
+                    input[type='radio'] {
+                        @extend .pointer;
+                        $input-size: $radio-group-height * .7;
+                        margin-top: $radio-group-height / 4;
+                        width: $input-size;
+                        height: $input-size;
+                    }
+                    p {
+                        @include single-row($radio-group-height);
+                        text-indent: 5px;
+                        font-size: .9rem;
+                    }
+                }
+            }
+        }
+        .message-box {
+            @extend .full-width;
+            @extend .text-nowrap;
+            height: 1em;
+            font-size: .9rem;
+            color: $lightred;
+            text-indent: 100% - $fieldWidth;
+        }
+
+        .button {
+            @extend .text-bold;
+            @include single-row($fieldHeight);
+            width: $fieldWidth;
+            background: $cornflower-blue;
+            color: #FFF;
+            border: 0;
+        }
+    }
+}

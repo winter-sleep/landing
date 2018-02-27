@@ -24,17 +24,17 @@
 
     <form class="form-content center-block" (ngSubmit)="submitHandle()">
         <!-- start of step1 -->
-        <div class="form nomal-content" [class.hide]="currentStep !== 1" [class.show]="currentStep === 1">
+        <div class="form" [class.hide]="currentStep !== 1" [class.show]="currentStep === 1">
             <div class="form-group">
-                <div class="field-body flex-row full-row">
-                    <label for="signup-email" class="pointer flex-none">电子邮件</label>
+                <div class="field-body">
+                    <label for="signup-email" class="pointer">电子邮件</label>
                     <input type="text"
                         id="signup-email"
                         name="email"
                         [(ngModel)]="formData.email"
                         placeholder="电子邮件地址"
-                        class="flex-auto text-input"
-                        (change)="isEmailValide()"
+                        class="text-input"
+                        (blur)="isEmailValide()"
                         [class.error]="!fieldState.email"
                     />
                 </div>
@@ -42,15 +42,15 @@
             </div>
 
             <div class="form-group">
-                <div class="field-body flex-row full-row">
-                    <label for="signup-nickname" class="pointer flex-none">你的名字</label>
+                <div class="field-body">
+                    <label for="signup-nickname" class="pointer">你的名字</label>
                     <input type="text"
                         id="signup-nickname"
                         name="nickname"
                         [(ngModel)]="formData.nickname"
                         (blur)="isNicknameValide()"
                         placeholder="怎么称呼您"
-                        class="flex-auto text-input"
+                        class="text-input"
                         maxlength="32"
                         [class.error]="!fieldState.nickname"
                     />
@@ -61,7 +61,7 @@
             <div class="form-group">
                 <div class="field-body">
                     <label class="hold"></label>
-                    <a  class="button center-block"
+                    <a  class="button"
                         (click)="stepTwoHandle();"
                         href="javascript:void(0);"
                     >
@@ -73,17 +73,17 @@
         <!-- end of step1 -->
 
         <!-- start of step2 -->
-        <div class="form nomal-content hide" [class.show]="currentStep === 2">
+        <div class="form hide" [class.show]="currentStep === 2">
             <div class="form-group">
-                <div class="field-body flex-row full-row">
-                    <label for="signup-password" class="pointer flex-none">设置密码</label>
+                <div class="field-body">
+                    <label for="signup-password" class="pointer">设置密码</label>
                     <input type="password"
                         id="signup-password"
                         name="password"
                         [(ngModel)]="formData.password"
                         (blur)="isPasswordValide()"
                         placeholder="设置登录密码"
-                        class="flex-auto text-input"
+                        class="text-input"
                         [class.error]="!fieldState.password"
                     />
                 </div>
@@ -91,15 +91,15 @@
             </div>
 
             <div class="form-group">
-                <div class="field-body flex-row full-row">
-                    <label for="signup-repassword" class="pointer flex-none">确认密码</label>
+                <div class="field-body">
+                    <label for="signup-repassword" class="pointer">确认密码</label>
                     <input type="password"
                         id="signup-repassword"
                         name="repassword"
                         [(ngModel)]="formData.repassword"
                         (blur)="isrePasswordValide()"
                         placeholder="再次输入登录密码"
-                        class="flex-auto text-input"
+                        class="text-input"
                         [class.error]="!fieldState.repassword"
                     />
                 </div>
@@ -109,52 +109,49 @@
             <div class="form-group">
                 <div class="field-body">
                     <label class="hold"></label>
-                    <a class="button center-block" (click)="stepThreeHandle();" href="javascript:void(0);">下一步</a>
+                    <a class="button" (click)="stepThreeHandle();" href="javascript:void(0);">下一步</a>
                 </div>
             </div>
         </div>
         <!-- end of step2 -->
 
         <!-- start of step3 -->
-        <div class="form nomal-content hide" [class.show]="currentStep === 3">
+        <div class="form hide" [class.show]="currentStep === 3">
 
             <div class="form-group">
-                <div class="field-body flex-row">
-                    <label for="signup-gender" class="pointer flex-none">您的性别是</label>
-                    <div class="flex-auto gender" id="signup-gender">
-                        <span class="pull-left">
+                <div class="field-body">
+                    <label for="signup-gender" class="pointer">您的性别</label>
+                    <div class="radio-inputs" id="signup-gender">
+                        <span class="radio-group">
                             <input
                                 type="radio"
                                 name="gender"
                                 checked
                                 id="signup-gender-0"
                                 value="0"
-                                class="pull-left"
                                 [(ngModel)]="formData.gender"
                             />
-                            <p class="pull-left">女生</p>
+                            <p>女生</p>
                         </span>
-                        <span class="pull-left">
+                        <span class="radio-group">
                             <input
                                 type="radio"
                                 name="gender"
                                 id="signup-gender-1"
                                 value="1"
-                                class="pull-left"
                                 [(ngModel)]="formData.gender"
                             />
-                            <p class="pull-left">男生</p>
+                            <p>男生</p>
                         </span>
-                        <span class="pull-left">
+                        <span class="radio-group">
                             <input
                                 type="radio"
                                 name="gender"
                                 id="signup-gender-2"
                                 value="2"
-                                class="pull-left"
                                 [(ngModel)]="formData.gender"
                             />
-                            <p class="pull-left">保密</p>
+                            <p>保密</p>
                         </span>
                     </div>
                 </div>
@@ -162,19 +159,19 @@
             </div>
 
             <div class="form-group">
-                <div class="field-body flex-row full-row">
-                    <label for="signup-identify" class="pointer flex-none">验证码</label>
+                <div class="field-body">
+                    <label for="signup-identify" class="pointer">验证码</label>
                     <input type="text"
                         id="signup-identify"
                         name="identify"
                         [(ngModel)]="formData.identify"
                         placeholder="验证码"
                         (blur)="isIdentifyValide()"
-                        class="flex-auto text-input"
+                        class="text-input"
                         [class.error]="!fieldState.identify"
                     />
-                    <div class="identify-image flex-auto">
-                        <img (click)="changeCaptcha()" [src]="captchaImage" class="pointer flex-auto" title="点击刷新验证码">
+                    <div class="identify-image">
+                        <img (click)="changeCaptcha()" [src]="captchaImage" class="pointer" title="点击刷新验证码">
                     </div>
                 </div>
                 <p class="message-box">{{messageBox.identify}}</p>
@@ -183,7 +180,7 @@
             <div class="form-group">
                 <div class="field-body">
                     <label class="hold"></label>
-                    <input type="submit" class="button center-block" value="填好了">
+                    <input type="submit" class="button pointer" value="填好了">
                 </div>
             </div>
         </div>

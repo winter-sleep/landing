@@ -34,6 +34,24 @@
     text-align: left;
 }
 
+.text-nowrap {
+    white-space:nowrap;
+    -moz-white-space:nowrap;
+    -webkit-white-space:nowrap;
+}
+
+.text-word-wrap {
+    word-wrap:break-word;
+    -moz-word-wrap:break-word;
+    -webkit-word-wrap:break-word;
+}
+
+.pointer {
+    cursor: pointer;
+    -moz-cursor: pointer;
+    -webkit-cursor: pointer;
+}
+
 .nomal-link {
     cursor: pointer;
     text-decoration:none;
@@ -55,4 +73,38 @@
 
 .hidden {
     display: none;
+}
+
+.flex-none {
+    -ms-flex: none;
+    -moz-flex: none;
+    -webkit-flex: none;
+    flex: none;
+}
+.flex-auto {
+    -ms-flex: auto;
+    -moz-flex: auto;
+    -webkit-flex: auto;
+    flex: auto;
+}
+.flex-initial {
+    -ms-flex: initial;
+    -moz-flex: initial;
+    -webkit-flex: initial;
+    flex: initial;
+}
+.flex-row, .flex-column {
+    display: flex;
+}
+.flex-row {
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    -moz-flex-direction: row;
+}
+.flex-column {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    -moz-flex-direction: column;
 }
