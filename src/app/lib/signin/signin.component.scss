@@ -1,19 +1,19 @@
 @import '../../config.scss';
+@import '../../stylesheet/BasicStyle';
+@import '../../stylesheet/FunctionStyle';
+@import '../../stylesheet/MixinStyle';
 
 .content {
     max-width: $content-width - $font-size;
-    height: auto;
-    padding: 0 .5rem 0 .5rem;
+    padding: horizontalSideSpace(.5rem);
 
     .middle {
+        @extend .full-width;
         $min-height: 300px;
-
-        width: 100%;
-        height: auto;
         margin-top: 3rem;
 
         .left, .right {
-            min-height: $min-height;  // dtm
+            min-height: $min-height;
         }
 
         .left {
@@ -21,7 +21,7 @@
             .image {
                 width: 96%;
                 height: $min-height;
-                margin: 0 2% 0 2%;
+                margin: horizontalSideSpace(2%);
                 background: url(/assets/system/signin/001.jpg);
                 background-size:100% 100%;
                 p {
@@ -37,28 +37,21 @@
         }
 
         .right {
-            width: 100%;
-            border: 1px solid #CCC;
+            @extend .full-width;
+            border: nomalBorder(#CCC);
             border-radius: 5px;
             background: $white-smoke;
 
             .header {
-                height: 45px;
+                @extend .text-bold;
+                @include single-row(45px);
                 width: 100%;
                 background: #202831;
-                font-weight: bold;
                 color: white;
                 text-indent: 10%;
-                line-height: 45px;
                 border-bottom: 1px solid #CCC;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
-            }
-
-            .form-content {
-                width: 80%;
-                height: auto;
-                padding: 0 10% 1rem 10%;
             }
         }
     }
@@ -66,30 +59,27 @@
 
 .form-content {
     width: 80%;
-    height: auto;
-    padding: 0 10% 1rem 10%;
+    padding: horizontalSideSpace(10%);
 
     .form-group {
-        width: 100%;
-        height: auto;
-        * {
-            width: 100%;
-            height: auto;
+        @extend .full-width;
+        margin-top: 10px;
+        * { @extend .full-width; }
+
+        label, label a {
+            font-size: .8rem;
         }
         label {
-            padding: 10px 0 10px 0;
-            font-size: .8rem;
+            padding: verticalSideSpace(10px);
             font-weight: bold;
             color: $pop-dark;
             a {
                 width: auto;
                 float: right;
-                font-size: .8px;
             }
         }
         .input-box {
             min-height: 30px;
-            padding: 3px 0 3px 0;
             input {
                 font-size: .9rem;
                 height: 30px;
@@ -113,8 +103,7 @@
         }
 
         .to-signup {
-            height: 30px;
-            line-height: 30px;
+            @include single-row(30px);
             font-size: .8rem;
             color: $font-base;
             a {
