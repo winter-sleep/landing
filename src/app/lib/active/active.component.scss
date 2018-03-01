@@ -20,20 +20,19 @@
     }
 
     .active-middle {
-        width: 100%;
-        height: 200px;
-        @include forms(80%, 40px, 35px);
+        width: 500px;
+        margin: 0 auto 0 auto;
+        @include forms(80%, 40px, 20px);
 
-        // .split-bar {
-        //     height: 16px;
-        //     width: 100%;
-        // }
-        
-        // .form-content {
-        //     max-width: 500px;
-        //     .field-body {
-        //         height: 50px;
-        //     }
-        // }
+        #resend-identify {
+            @extend .flex-none;
+            width: 55%;
+        }
+        .identify-image {
+            height: 40px;
+            img {
+                @extend .full-block;
+            }
+        }
     }
 }

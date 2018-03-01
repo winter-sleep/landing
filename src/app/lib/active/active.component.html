@@ -4,7 +4,7 @@
     <h1>重新发送激活邮件</h1>
   </div>
 
-  <div class="active-middle form">
+  <div class="active-middle">
     <form class="form-content center-block" (ngSubmit)="submitHandle()">
 
       <div class="form-group">
@@ -19,15 +19,14 @@
             class="text-input"
           />
         </div>
+        <p class="message-box"></p>
       </div>
-
-      <div class="split-bar"></div>
 
       <div class="form-group">
         <div class="field-body">
-          <label for="signup-identify">验证码</label>
+          <label for="resend-identify">验证码</label>
           <input type="text"
-            id="signup-identify"
+            id="resend-identify"
             name="identify"
             [(ngModel)]="identify"
             placeholder="验证码"
@@ -37,6 +36,7 @@
             <img (click)="changeCaptcha()" [src]="captchaImage" class="pointer flex-auto" title="点击刷新验证码">
           </div>
         </div>
+        <p class="message-box"></p>
       </div>
 
     </form>
