@@ -1,5 +1,8 @@
 @import '../../config.scss';
-@import '../signin/signin.component.scss';
+@import '../../stylesheet/BasicStyle';
+@import '../../stylesheet/FunctionStyle';
+@import '../../stylesheet/MixinStyle';
+@import '../../stylesheet/FormStyle';
 
 .content {
     max-width: $content-width - $font-size;
@@ -19,17 +22,18 @@
     .active-middle {
         width: 100%;
         height: 200px;
+        @include forms(80%, 40px, 35px);
 
-        .split-bar {
-            height: 16px;
-            width: 100%;
-        }
+        // .split-bar {
+        //     height: 16px;
+        //     width: 100%;
+        // }
         
-        .form-content {
-            max-width: 500px;
-            .field-body {
-                height: 50px;
-            }
-        }
+        // .form-content {
+        //     max-width: 500px;
+        //     .field-body {
+        //         height: 50px;
+        //     }
+        // }
     }
 }
